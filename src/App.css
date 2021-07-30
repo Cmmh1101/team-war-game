@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .navbar {
   position: absolute;
   top: 0;
@@ -18,4 +24,55 @@ iframe {
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+.scoreboard {
+  /* width: 500px; */
+}
+
+.board {
+  height: 500px;
+  position: relative;
+}
+
+.cards {
+  width: 200px;
+  height: 120px;
+  position: absolute;
+  background-image: url("./images/backcard.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(90deg);
+}
+
+.card-down_1 {
+  bottom: 20px;
+  left: 20px;
+}
+.card-down_2 {
+  top: 20px;
+  right: 20px;
+}
+
+.play-area {
+}
+
+.played-cards {
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  top: 35%;
+}
+
+.played-cards img {
+  width: 100%;
+  transform: rotate(90deg);
+}
+
+.played-card_1 {
+  left: 25%;
+}
+.played-card_2 {
+  right: 25%;
 }
