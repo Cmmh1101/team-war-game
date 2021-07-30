@@ -25,7 +25,23 @@ function CardDeck() {
       deck.push(`${suits[suitCount]}${values[valCount]}`);
     }
   }
-  return <> {deck} </>;
+
+  for (let i = 0; i < 52; i++) {
+    let card = deck[i];
+    let randomIndex = Math.floor(Math.random() * 52);
+    deck[i] = deck[randomIndex];
+    deck[randomIndex] = card;
+  }
+  return (
+    <>
+      <h2>Randomized Deck: {deck.length}</h2>
+      <ul>
+        {deck.map((card) => {
+          return <li>{card}</li>;
+        })}
+      </ul>
+    </>
+  );
 }
 
 CardDeck();
