@@ -21,7 +21,7 @@ const Navigation = (props) => {
 
   return (
     <div>
-      <Navbar color="secondary" dark expand="sm">
+      <Navbar className="navbar" color="secondary" dark expand="sm">
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <div className="container">

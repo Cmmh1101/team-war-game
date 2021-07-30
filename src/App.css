@@ -1,4 +1,10 @@
 .navbar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.navbar {
   width: 100%;
 }
 
@@ -11,4 +17,5 @@ iframe {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
