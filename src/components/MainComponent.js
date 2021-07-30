@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Homepage from "./HomepageComponent";
-import Play from "./PlayComponent";
-import About from "./AboutComponent";
-import ContactUs from "./ContactUsComponent";
+import Homepage from "../pages/HomepageComponent";
+import Play from "../pages/PlayComponent";
+import About from "../pages/AboutComponent";
+import ContactUs from "../pages/ContactUsComponent";
 import Navigation from "./NavigationComponent";
 
 function Main() {
