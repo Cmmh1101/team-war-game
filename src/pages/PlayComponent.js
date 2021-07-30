@@ -30,7 +30,7 @@ function Play() {
                 </div>
               </div>
               <div className="col-4">
-                <div className="">Player 1</div>
+                <div className="">Player 2</div>
                 <div className="">
                   <Table>
                     <thead>
@@ -49,30 +49,6 @@ function Play() {
                 </div>
               </div>
             </div>
-
-            {/* <Table>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Score</th>
-                  <th>Cards Left</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>Player 1</th>
-                  <td>2</td>
-                  <td>15</td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <th>Player 2</th>
-                  <td>10</td>
-                  <td>23</td>
-                </tr>
-              </tbody>
-            </Table> */}
           </div>
         </div>
         <div className="row">
