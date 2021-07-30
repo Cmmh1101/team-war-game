@@ -32,12 +32,12 @@ const Navigation = (props) => {
                 </Link>
               </NavItem>
               <NavItem>
-                <Link className="text-white" to="/">
+                <Link className="text-white" to="/about">
                   About
                 </Link>
               </NavItem>
               <NavItem>
-                <Link className="text-white" to="/">
+                <Link className="text-white" to="/contactus">
                   Contact
                 </Link>
               </NavItem>
