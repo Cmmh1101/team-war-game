@@ -3,16 +3,11 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const Navigation = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,24 +22,24 @@ const Navigation = (props) => {
           <div className="container">
             <Nav className="d-flex justify-content-between navbar" navbar>
               <NavItem>
-                <NavLink className="text-white" href="/">
+                <Link className="text-white" to="/">
                   Home
-                </NavLink>
+                </Link>
               </NavItem>
               <NavItem>
-                <NavLink className="text-white" href="/">
+                <Link className="text-white" to="/play">
                   Play
-                </NavLink>
+                </Link>
               </NavItem>
               <NavItem>
-                <NavLink className="text-white" href="/">
+                <Link className="text-white" to="/">
                   About
-                </NavLink>
+                </Link>
               </NavItem>
               <NavItem>
-                <NavLink className="text-white" href="/">
+                <Link className="text-white" to="/">
                   Contact
-                </NavLink>
+                </Link>
               </NavItem>
             </Nav>
           </div>
