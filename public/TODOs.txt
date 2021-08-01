@@ -17,12 +17,12 @@ DONE? If your game is normally played with 2+ players, you must provide an AI. Y
 The AI doesn't have to be smart, making the computer select random cards could be just fine.
 
 -----LOGIC
--Check win condition is working properly for standard last card draw. Not sure if it happening when player hand length is 0 or 1
+DONE -Check win condition is working properly for standard last card draw. Not sure if it happening when player hand length is 0 or 1
 
 -Add win condition when WAR occurs at or near the last draw.
 SCENARIO: War occurs at or near the last draw. Player1 doesn't hold enough cards in their hand to fully stake the WAR(has less than 5 cards)
   -Option 1 : PlayerOne immediately loses the game
-  -Option 2 : PlayerOne stakes the remaining cards in their hand, and flips the last card to determine if they win the WAR. If PlayerOne loses the WAR, PlayerOne loses the game. If PlayerOne wins the WAR, PlayerOne takes the staked cards into their hand and the play continues as normal. PlayerTwo stakes the normal amount of cards.
+  SELECTED -Option 2 : PlayerOne stakes the remaining cards in their hand, and flips the last card to determine if they win the WAR. If PlayerOne loses the WAR, PlayerOne loses the game. If PlayerOne wins the WAR, PlayerOne takes the staked cards into their hand and the play continues as normal. PlayerTwo stakes the normal amount of cards.
   -Option 3 : PlayerOne stakes the remaining cards in their hand, and flips the last card to determine if they win the WAR. If PlayerOne loses the WAR, PlayerOne loses the game. If PlayerOne win the WAR, PlayerOne takes the staked cards into their hand and the play continues as normal. PlayerTwo stakes the SAME amount of cards as PlayerOne.
 SCENARIO: War occurs at or near the last draw. Player1 and Player2 don't hold enough cards in their hands to fully stake the WAR(both have less than 5 cards). PlayerOne has 3 cards, PlayerTwo has 4 cards. THIS WOULD BE EXCEEDINGLY RARE. It would mean all the cards are staked/'in limbo' from a series of 5 WARS IN A ROW. IS THIS EVEN POSSIBLE?
   -Option 1 : The game is a DRAW
