@@ -28,7 +28,7 @@ class Play extends Component {
         playerTwo: ''
       },
       cardsInLimbo: [],
-      buttText : 'Shuffle the cards',
+      buttText : 'Shuffle the Cards',
       playing: false,
       showCards: false,
       showButton: false,
@@ -40,11 +40,20 @@ class Play extends Component {
 
  
   buttonHandler(){
-    this.setState({
-      buttText: 'Reset the game',
+    if (this.state.playing && this.state.showButton) {
+      this.setState({
+        buttText: 'Shuffle the Cards',
+        playing: false,
+        showButton : false,
+        showCards : false
+      })
+    } else {
+      this.setState({
+      buttText: 'Reset the Game',
       playing: true,
       showButton : true,
     })
+    }
   }
 
   
@@ -103,13 +112,9 @@ class Play extends Component {
     });
     //shows the first draw
 
-    //checks win condition
+    
     //NEED TO: update win count, re-shuffle and deal, make sure state is updated correctly(reset buttons, cards)
-    if (this.state.playerDeck.playerOne.length === 0) {
-      alert('Player Two is the winner');
-    } else if (this.state.playerDeck.playerTwo.length === 0) {
-      alert('Player One is the winner');
-    }
+    
 
     let p1CurrentCard = '';
     let p2CurrentCard = '';
@@ -154,6 +159,8 @@ class Play extends Component {
       // console.log(checkNum('6')); 
       //checks if current value is Nan. If it is converts the letter character to the appropriate number value, if not converts the value string to a number
 
+
+      //accepts 2 numbers and compares the values. 
       const compareVal = (v1, v2) => {
         let cardsInPlay = [p1CurrentCard, p2CurrentCard];
         let winningsArr = [];
@@ -168,6 +175,14 @@ class Play extends Component {
           });
           cardsInPlay = [];
         } else if (v1 > v2) {
+          //checks win condition for p1
+
+          //NOT SURE IF THIS IS HAPPENING AT THE APPROPRIATE TIME!!!!!!!
+
+         if (p2Arr.length === 0) {
+            alert('Player One is the winner');
+          }
+
           if (this.state.cardsInLimbo.length !== -1) {
             winningsArr = [...this.state.cardsInLimbo];
             this.setState({
@@ -179,24 +194,35 @@ class Play extends Component {
           console.log('p1 wins', p1Arr[p1Arr.length-2], p1Arr[p1Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);
           
         } else {
+          //checks win condition for p2
+
+          //NOT SURE IF THIS IS HAPPENING AT THE APPROPRIATE TIME!!!!!!!
+          
+          if (p1Arr.length === 0) {
+            alert('Player Two is the winner');
+          }
+
           if (this.state.cardsInLimbo.length !== -1) {
             winningsArr = [...this.state.cardsInLimbo];
             this.setState({
               cardsInLimbo: []
             })
           };
+<<<<<<< Updated upstream
           p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
           console.log('p2wins', p2Arr[p2Arr.length-2], p2Arr[p2Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);
           
         }
+=======
+          //add cards in play to the winning player PLUS any cards staked from a previous war
+          // p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
+          console.log('p2wins', p2Arr[p2Arr.length-2], p2Arr[p2Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);}
+>>>>>>> Stashed changes
         
         this.setState({
         playerDeck: { playerOne: p1Arr, playerTwo: p2Arr}
       })
       }
-      //accepts 2 numbers and compares. 
-      //NEED TO UPDATE LOGIC TO PUSH THE CARDS TO THE APPROPRIATE PLAYER
-
       compareVal(checkNum(p1CurrentVal), checkNum(p2CurrentVal));
 
       const updatePath = (card, val) => {
