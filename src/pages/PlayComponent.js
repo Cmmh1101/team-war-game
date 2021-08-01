@@ -116,9 +116,9 @@ class Play extends Component {
 
     //Copy the player hands and remove the current card AVOID MUTATING STATE DIRECTLY
     const pullCard = () => {
-      
       //make a SHALLOW COPY of the playerDeck ARRAYS from STATE
       // console.log('p1Arr' + p1Arr);
+
       p1CurrentCard = p1Arr.shift();
       p2CurrentCard = p2Arr.shift();
       //set current card as the first item in the playerDeck array for each player
