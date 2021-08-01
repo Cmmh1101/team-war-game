@@ -5,9 +5,9 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
-  NavLink,
+  
 } from "reactstrap";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navigation = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,24 +22,24 @@ const Navigation = (props) => {
           <div className="container">
             <Nav className="d-flex justify-content-between navbar" navbar>
               <NavItem>
-                <Link className="text-white" to="/">
+                <NavLink className="text-white" to="/">
                   Home
-                </Link>
+                </NavLink>
               </NavItem>
               <NavItem>
-                <Link className="text-white" to="/play">
+                <NavLink className="text-white" to="/play">
                   Play
-                </Link>
+                </NavLink>
               </NavItem>
               <NavItem>
-                <Link className="text-white" to="/about">
+                <NavLink className="text-white" to="/about">
                   About
-                </Link>
+                </NavLink>
               </NavItem>
               <NavItem>
-                <Link className="text-white" to="/contactus">
+                <NavLink className="text-white" to="/contactus">
                   Contact
-                </Link>
+                </NavLink>
               </NavItem>
             </Nav>
           </div>
