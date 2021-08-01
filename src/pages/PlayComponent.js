@@ -204,6 +204,7 @@ class Play extends Component {
           p2Arr.length
         );
       }
+<<<<<<< HEAD
 
       this.setState({
         playerDeck: { playerOne: p1Arr, playerTwo: p2Arr },
@@ -214,6 +215,14 @@ class Play extends Component {
 
     compareVal(checkNum(p1CurrentVal), checkNum(p2CurrentVal));
 
+=======
+    };
+    //accepts 2 numbers and compares.
+    //NEED TO UPDATE LOGIC TO PUSH THE CARDS TO THE APPROPRIATE PLAYER
+
+    compareVal(checkNum(p1CurrentVal), checkNum(p2CurrentVal));
+
+>>>>>>> c1eb252b7e03ff191655c5be54fa525ef8bec207
     const updatePath = (card, val) => {
       let path = `../cards/`;
       path += `${val}_of_`;
@@ -234,9 +243,17 @@ class Play extends Component {
           console.log("Suit error");
       }
       path += ".png";
+<<<<<<< HEAD
       // console.log(path, typeof path);
       return path;
     };
+=======
+      console.log(path, typeof path);
+      return path;
+    
+    };
+    
+>>>>>>> c1eb252b7e03ff191655c5be54fa525ef8bec207
 
     this.setState({
       cardImgPath: {
