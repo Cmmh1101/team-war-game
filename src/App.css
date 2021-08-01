@@ -27,12 +27,14 @@ iframe {
 }
 
 .scoreboard {
-  /* width: 500px; */
+  margin: 0 !important;
+  overflow: hidden;
 }
 
 .board {
   height: 500px;
   position: relative;
+  padding: 0 !important;
 }
 
 .cards {
