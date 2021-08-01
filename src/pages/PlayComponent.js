@@ -13,247 +13,189 @@ class Play extends Component {
     this.state = {
       playerDeck: {
         playerOne: [],
-        playerTwo: []
+        playerTwo: [],
       },
-      score : {
+      score: {
         playerOne: 10,
-        playerTwo: 0
+        playerTwo: 0,
       },
       currentCard: {
         playerOne: [],
-        playerTwo: []
+        playerTwo: [],
       },
       cardImgPath: {
-        playerOne: '',
-        playerTwo: ''
+        playerOne: "",
+        playerTwo: "",
       },
-      buttText : 'Shuffle the cards',
+      buttText: "Shuffle the cards",
       playing: false,
       showCards: false,
       showButton: false,
     };
   }
 
-  
-   
-
- 
-  buttonHandler(){
+  buttonHandler() {
     this.setState({
-      buttText: 'Reset the game',
+      buttText: "Reset the game",
       playing: true,
-      showButton : true,
-    })
+      showButton: true,
+    });
   }
 
-  
   shuffleDeck() {
-  const deck = [];
-  const suits = ["C", "D", "H", "S"];
-  const values = [
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "J",
-    "Q",
-    "K",
-    "A",
-  ];
+    const deck = [];
+    const suits = ["C", "D", "H", "S"];
+    const values = [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "J",
+      "Q",
+      "K",
+      "A",
+    ];
 
-  for (let suitCount = 0; suitCount < 4; suitCount++) {
-    // console.log(suits[suitCount]);
-    for (let valCount = 0; valCount < 13; valCount++) {
-      deck.push(`${suits[suitCount]}${values[valCount]}`);
+    for (let suitCount = 0; suitCount < 4; suitCount++) {
+      // console.log(suits[suitCount]);
+      for (let valCount = 0; valCount < 13; valCount++) {
+        deck.push(`${suits[suitCount]}${values[valCount]}`);
+      }
     }
-  }
-  //shuffle the deck
-  for (let i = 0; i < 52; i++) {
-    let card = deck[i];
-    let randomIndex = Math.floor(Math.random() * 52);
-    deck[i] = deck[randomIndex];
-    deck[randomIndex] = card;
-  }
-  //deal the deck
-  let p1Cards = [];
-  let p2Cards = [];
-  //create 2 arrays into which we are going to split the shuffled cards based on even/odd position;
-  for (let i = 0; i < deck.length; i++) {
-    if ((i + 2)%2 === 0) {
-      p1Cards.push(deck[i])
-    } else {
-      p2Cards.push(deck[i])
+    //shuffle the deck
+    for (let i = 0; i < 52; i++) {
+      let card = deck[i];
+      let randomIndex = Math.floor(Math.random() * 52);
+      deck[i] = deck[randomIndex];
+      deck[randomIndex] = card;
     }
-  }
-  this.setState({
-    playerDeck: {playerOne: p1Cards, playerTwo: p2Cards},
-  })
-  this.buttonHandler();
-  }
-
-  playCard(){
+    //deal the deck
+    let p1Cards = [];
+    let p2Cards = [];
+    //create 2 arrays into which we are going to split the shuffled cards based on even/odd position;
+    for (let i = 0; i < deck.length; i++) {
+      if ((i + 2) % 2 === 0) {
+        p1Cards.push(deck[i]);
+      } else {
+        p2Cards.push(deck[i]);
+      }
+    }
     this.setState({
-      showCards : true
+      playerDeck: { playerOne: p1Cards, playerTwo: p2Cards },
+    });
+    this.buttonHandler();
+  }
+
+  playCard() {
+    this.setState({
+      showCards: true,
     });
 
     let p1CurrentCard = this.state.playerDeck.playerOne.shift();
     let p2CurrentCard = this.state.playerDeck.playerTwo.shift();
     //set current card as the first item in the playerDeck array for each player
     let p1CurrentVal = p1CurrentCard.substring(1);
-    
+
     let p2CurrentVal = p2CurrentCard.substring(1);
     //sets the current value as the last character in the current card. returns STRING
     console.log(p1CurrentCard, p2CurrentCard, p1CurrentVal, p2CurrentVal);
-    
+
     const checkNum = (val) => {
-      if (isNaN(Number(val)) ) {
-        switch(val) {
-          case 'J': return 11;
-          case 'Q': return 12;
-          case 'K': return 13;
-          case 'A': return 14;
-          default : console.log('Value error');
+      if (isNaN(Number(val))) {
+        switch (val) {
+          case "J":
+            return 11;
+          case "Q":
+            return 12;
+          case "K":
+            return 13;
+          case "A":
+            return 14;
+          default:
+            console.log("Value error");
         }
       } else {
-        return parseInt(val)
-      }}
-      // console.log(checkNum('6')); 
-      //checks if current value is Nan. If it is converts the letter character to the appropriate number value, if not converts the value string to a number
-
-      const compareVal = (v1, v2) => {
-        if (v1 === v2) {
-          console.log('war');
-        } else if (v1 > v2) {
-          console.log('p1 wins');
-        } else {console.log('p2wins');}
+        return parseInt(val);
       }
-      //accepts 2 numbers and compares. 
-      //NEED TO UPDATE LOGIC TO PUSH THE CARDS TO THE APPROPRIATE PLAYER
+    };
+    // console.log(checkNum('6'));
+    //checks if current value is Nan. If it is converts the letter character to the appropriate number value, if not converts the value string to a number
 
-      compareVal(checkNum(p1CurrentVal), checkNum(p2CurrentVal));
-
-      const updatePath = (card, val) => {
-        let path = `../cards/`;
-        path += `${val}_of_`
-        switch(card[0]) {
-          case 'C': path += 'clubs';
-          break;
-          case 'D': path += 'diamonds';
-          break;
-          case 'H': path += 'hearts';
-          break;
-          case 'S': path += 'spades';
-          break;
-          default: console.log('Suit error');
-        }
-        path += '.png'
-        console.log(path, typeof path); 
-        return path;
+    const compareVal = (v1, v2) => {
+      if (v1 === v2) {
+        console.log("war");
+      } else if (v1 > v2) {
+        console.log("p1 wins");
+      } else {
+        console.log("p2wins");
       }
-      
-      this.setState({
-        cardImgPath: {
+    };
+    //accepts 2 numbers and compares.
+    //NEED TO UPDATE LOGIC TO PUSH THE CARDS TO THE APPROPRIATE PLAYER
+
+    compareVal(checkNum(p1CurrentVal), checkNum(p2CurrentVal));
+
+    const updatePath = (card, val) => {
+      let path = `../cards/`;
+      path += `${val}_of_`;
+      switch (card[0]) {
+        case "C":
+          path += "clubs";
+          break;
+        case "D":
+          path += "diamonds";
+          break;
+        case "H":
+          path += "hearts";
+          break;
+        case "S":
+          path += "spades";
+          break;
+        default:
+          console.log("Suit error");
+      }
+      path += ".png";
+      console.log(path, typeof path);
+      return path;
+    };
+
+    this.setState({
+      cardImgPath: {
         playerOne: updatePath(p1CurrentCard, p1CurrentVal),
-        playerTwo: updatePath(p2CurrentCard, p2CurrentVal)
-      }
-      })
-      
+        playerTwo: updatePath(p2CurrentCard, p2CurrentVal),
+      },
+    });
   }
 
-  
   render() {
     return (
-    <React.Fragment>
-      <div className="Container">
-<<<<<<< HEAD
-        <div className="row">
-          <div className="col text-center mt-5 scoreboard">
-            <h1 className="m-0">Scoreboard</h1>
-            {/* side to side scoreboard */}
-            <div className="col d-flex justify-content-between">
-              <div className="col-4">
-                <div className="">Player 1</div>
-                <div className="">
-                  <Table>
-                    <thead>
-                      <tr>
-                        <th>Score</th>
-                        <th>Cards Left</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>2</td>
-                        <td>15</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </div>
-              </div>
-              <div className="col-4">
-                <div className="">Player 2</div>
-                <div className="">
-                  <Table>
-                    <thead>
-                      <tr>
-                        <th>Score</th>
-                        <th>Cards Left</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>2</td>
-                        <td>15</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </div>
-              </div>
-            </div>
-          </div>
+      <React.Fragment>
+        <div className="Container">
+          <Scoreboard
+            p1wins={this.state.score.playerOne}
+            p2wins={this.state.score.playerTwo}
+            p1hand={this.state.playerDeck.playerOne.length}
+            p2hand={this.state.playerDeck.playerTwo.length}
+          />
+          <Controls
+            shuffle={this.shuffleDeck}
+            buttText={this.state.buttText}
+            playCard={this.playCard}
+            showButton={this.state.showButton}
+          />
+          <Board
+            showCards={this.state.showCards}
+            p1Path={this.state.cardImgPath.playerOne}
+            p2Path={this.state.cardImgPath.playerTwo}
+          />
         </div>
-        <div className="row">
-          <div className="col d-flex align-items-center mx-auto">
-            <div className="col-2 text-center">
-              <h1>Player One</h1>
-            </div>
-            <div className="col-8">
-              {/* Board */}
-              <div className="bg-dark board text-center">
-                {/* face up played cards */}
-                <div className="play-area">
-                  <div className="played-cards played-card_1">
-                    <img src="../cards/red_joker.png" alt="played card 1" />
-                  </div>
-                  <div className="played-cards played-card_2">
-                    <img src="../cards/7_of_diamonds.png" alt="played card 2" />
-                  </div>
-                </div>
-                {/* Face Down deck cards */}
-                <div className="cards card-down_1"></div>
-                <div className="cards card-down_2"></div>
-              </div>
-            </div>
-            <div className="col-2 text-center">
-              <h1>Player Two</h1>
-            </div>
-          </div>
-        </div>
-=======
-        <Scoreboard p1wins={this.state.score.playerOne} p2wins={this.state.score.playerTwo} p1hand={this.state.playerDeck.playerOne.length} p2hand={this.state.playerDeck.playerTwo.length} />
-        <Controls shuffle={this.shuffleDeck} buttText={this.state.buttText} playCard={this.playCard} showButton={this.state.showButton}/>
-        <Board showCards={this.state.showCards} p1Path={this.state.cardImgPath.playerOne} p2Path={this.state.cardImgPath.playerTwo}/>
->>>>>>> b9460bd48a631642c762d62d7acb91adda8f738c
-      </div>
-    </React.Fragment>
-  );
-  
-  
+      </React.Fragment>
+    );
   }
 }
 
