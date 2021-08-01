@@ -172,10 +172,12 @@ class Play extends Component {
             winningsArr = [...this.state.cardsInLimbo];
             this.setState({
               cardsInLimbo: []
-            })
+            });
+            
           }
-          p1Arr = p1Arr.concat(cardsInPlay, winningsArr);
+          // p1Arr = p1Arr.concat(cardsInPlay, winningsArr);
           console.log('p1 wins', p1Arr[p1Arr.length-2], p1Arr[p1Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);
+          
         } else {
           if (this.state.cardsInLimbo.length !== -1) {
             winningsArr = [...this.state.cardsInLimbo];
@@ -184,7 +186,9 @@ class Play extends Component {
             })
           };
           p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
-          console.log('p2wins', p2Arr[p2Arr.length-2], p2Arr[p2Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);}
+          console.log('p2wins', p2Arr[p2Arr.length-2], p2Arr[p2Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);
+          
+        }
         
         this.setState({
         playerDeck: { playerOne: p1Arr, playerTwo: p2Arr}
@@ -228,85 +232,9 @@ class Play extends Component {
     return (
     <React.Fragment>
       <div className="Container">
-<<<<<<< HEAD
-        <div className="row">
-          <div className="col text-center mt-5 scoreboard">
-            <h1 className="m-0">Scoreboard</h1>
-            {/* side to side scoreboard */}
-            <div className="col d-flex justify-content-between">
-              <div className="col-4">
-                <div className="">Player 1</div>
-                <div className="">
-                  <Table>
-                    <thead>
-                      <tr>
-                        <th>Score</th>
-                        <th>Cards Left</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>2</td>
-                        <td>15</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </div>
-              </div>
-              <div className="col-4">
-                <div className="">Player 2</div>
-                <div className="">
-                  <Table>
-                    <thead>
-                      <tr>
-                        <th>Score</th>
-                        <th>Cards Left</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>2</td>
-                        <td>15</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col d-flex align-items-center mx-auto">
-            <div className="col-2 text-center">
-              <h1>Player One</h1>
-            </div>
-            <div className="col-8">
-              {/* Board */}
-              <div className="bg-dark board text-center">
-                {/* face up played cards */}
-                <div className="play-area">
-                  <div className="played-cards played-card_1">
-                    <img src="../cards/red_joker.png" alt="played card 1" />
-                  </div>
-                  <div className="played-cards played-card_2">
-                    <img src="../cards/7_of_diamonds.png" alt="played card 2" />
-                  </div>
-                </div>
-                {/* Face Down deck cards */}
-                <div className="cards card-down_1"></div>
-                <div className="cards card-down_2"></div>
-              </div>
-            </div>
-            <div className="col-2 text-center">
-              <h1>Player Two</h1>
-            </div>
-          </div>
-        </div>
-=======
         <Scoreboard p1wins={this.state.score.playerOne} p2wins={this.state.score.playerTwo} p1hand={this.state.playerDeck.playerOne.length} p2hand={this.state.playerDeck.playerTwo.length} />
         <Controls shuffle={this.shuffleDeck} buttText={this.state.buttText} playCard={this.playCard} showButton={this.state.showButton}/>
         <Board showCards={this.state.showCards} p1Path={this.state.cardImgPath.playerOne} p2Path={this.state.cardImgPath.playerTwo}/>
->>>>>>> b9460bd48a631642c762d62d7acb91adda8f738c
       </div>
     </React.Fragment>
   );
