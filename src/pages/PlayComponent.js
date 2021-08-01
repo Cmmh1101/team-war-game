@@ -104,8 +104,9 @@ class Play extends Component {
     let p1CurrentCard = this.state.playerDeck.playerOne.shift();
     let p2CurrentCard = this.state.playerDeck.playerTwo.shift();
     //set current card as the first item in the playerDeck array for each player
-    let p1CurrentVal = p1CurrentCard.slice(1);
-    let p2CurrentVal = p2CurrentCard.slice(1);
+    let p1CurrentVal = p1CurrentCard.substring(1);
+    
+    let p2CurrentVal = p2CurrentCard.substring(1);
     //sets the current value as the last character in the current card. returns STRING
     console.log(p1CurrentCard, p2CurrentCard, p1CurrentVal, p2CurrentVal);
     
@@ -136,9 +137,9 @@ class Play extends Component {
 
       compareVal(checkNum(p1CurrentVal), checkNum(p2CurrentVal));
 
-      const updatePath = (card) => {
+      const updatePath = (card, val) => {
         let path = `../cards/`;
-        path += `${card[1]}_of_`
+        path += `${val}_of_`
         switch(card[0]) {
           case 'C': path += 'clubs';
           break;
@@ -157,8 +158,8 @@ class Play extends Component {
       
       this.setState({
         cardImgPath: {
-        playerOne: updatePath(p1CurrentCard),
-        playerTwo: updatePath(p2CurrentCard)
+        playerOne: updatePath(p1CurrentCard, p1CurrentVal),
+        playerTwo: updatePath(p2CurrentCard, p2CurrentVal)
       }
       })
       
