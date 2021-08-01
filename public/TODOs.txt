@@ -1,0 +1,69 @@
+-------TO DO MASTER LIST-------
+-----MINTBEAN CHECKLIST
+
+DONE Your game must be at least as complex as War.
+
+DONE Your game must be played with cards from the standard 52-card deck.
+
+ALMOST DONE Your game must have a clear win condition. For example, in some games, getting rid of all your cards.
+
+ALMOST DONE Your game must have a clear lose condition. For example, in some games, scoring the lowest number of points.
+
+DONE? Accidental duplications of a card will be considered a bug, for which you will lose points. (See the scoring rubric for more details on how bugs affect your score)
+DONE No collectible card games or non-standard decks allowed (so for example, no Yu-Gi-Oh!, Magic the Gathering, or Pokemon. And no Tarot cards either.)
+
+For frontend-only applications
+DONE? If your game is normally played with 2+ players, you must provide an AI. You may support "hot seat" or "pass the keyboard" style multiplayer, but regardless of that choice, you must still provide an AI.
+The AI doesn't have to be smart, making the computer select random cards could be just fine.
+
+-----LOGIC
+-Check win condition is working properly for standard last card draw. Not sure if it happening when player hand length is 0 or 1
+
+-Add win condition when WAR occurs at or near the last draw.
+SCENARIO: War occurs at or near the last draw. Player1 doesn't hold enough cards in their hand to fully stake the WAR(has less than 5 cards)
+  -Option 1 : PlayerOne immediately loses the game
+  -Option 2 : PlayerOne stakes the remaining cards in their hand, and flips the last card to determine if they win the WAR. If PlayerOne loses the WAR, PlayerOne loses the game. If PlayerOne wins the WAR, PlayerOne takes the staked cards into their hand and the play continues as normal. PlayerTwo stakes the normal amount of cards.
+  -Option 3 : PlayerOne stakes the remaining cards in their hand, and flips the last card to determine if they win the WAR. If PlayerOne loses the WAR, PlayerOne loses the game. If PlayerOne win the WAR, PlayerOne takes the staked cards into their hand and the play continues as normal. PlayerTwo stakes the SAME amount of cards as PlayerOne.
+SCENARIO: War occurs at or near the last draw. Player1 and Player2 don't hold enough cards in their hands to fully stake the WAR(both have less than 5 cards). PlayerOne has 3 cards, PlayerTwo has 4 cards. THIS WOULD BE EXCEEDINGLY RARE. It would mean all the cards are staked/'in limbo' from a series of 5 WARS IN A ROW. IS THIS EVEN POSSIBLE?
+  -Option 1 : The game is a DRAW
+  -Option 2 : PlayerOne & PlayerTwo stake the remaining cards in their hands, and flip the last card to determine who wins the WAR. If PlayerOne loses the WAR, PlayerOne loses the game. If PlayerOne wins the WAR, PlayerOne takes the staked cards into their hand and the play continues as normal. 
+  -Option 3 : PlayerOne stakes the remaining cards in their hand, and flips the last card to determine if they win the WAR. If PlayerOne loses the WAR, PlayerOne loses the game. If PlayerOne win the WAR, PlayerOne takes the staked cards into their hand and the play continues as normal. PlayerTwo stakes the SAME amount of cards as PlayerOne.
+
+-Add functionality to update the win counts stored in STATE in PlayComponent when a player wins a game.
+
+
+------PRESENTATIONAL
+-Minor bug fix to button appearance when toggled. Buttons don't maintain consistent sizing
+-Improve button styling/ Location?
+-Improve Scoreboard styling
+  -Different color
+  -Border?
+-Change font?
+
+-Add Sounds?
+  -When Cards are drawn
+  -When a game is won
+  -When there is a WAR
+
+-Add Animations/Visual Effects?
+  -When there is a WAR
+    -Display a message('It's WAR!')
+    -Add some effect that tells the user the cards from the WAR are being staked/Held in a separate stack
+  -When the deck is shuffled
+  -When a standard hand is won 
+
+
+-------PAGES
+-Need to complete About Page
+-Need to complete Contact Page
+-Need to update Readme in Github Repo. Probably can be mostly duplicate from the About Page
+
+-----GITHUB & DEPLOYMENT
+-Resolve branch conflicts in MASTER
+-Deploy MONDAY NIGHT
+  -Complete yarn build and deploy to:
+    -Netlify??
+    -Heroku
+    -Github Pages
+
+

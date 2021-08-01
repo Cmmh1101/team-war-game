@@ -208,16 +208,10 @@ class Play extends Component {
               cardsInLimbo: []
             })
           };
-<<<<<<< Updated upstream
           p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
           console.log('p2wins', p2Arr[p2Arr.length-2], p2Arr[p2Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);
           
         }
-=======
-          //add cards in play to the winning player PLUS any cards staked from a previous war
-          // p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
-          console.log('p2wins', p2Arr[p2Arr.length-2], p2Arr[p2Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);}
->>>>>>> Stashed changes
         
         this.setState({
         playerDeck: { playerOne: p1Arr, playerTwo: p2Arr}
