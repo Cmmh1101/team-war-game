@@ -5,11 +5,11 @@ function Play() {
   return (
     <React.Fragment>
       <div className="Container">
-        <div className="row scoreboard mx-auto">
-          <div className="col text-center">
-            <h1>Scoreboard</h1>
+        <div className="row">
+          <div className="col text-center mt-5 scoreboard">
+            <h1 className="m-0">Scoreboard</h1>
             {/* side to side scoreboard */}
-            <div className="col d-flex justify-content-between mb-5">
+            <div className="col d-flex justify-content-between">
               <div className="col-4">
                 <div className="">Player 1</div>
                 <div className="">
