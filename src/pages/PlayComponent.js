@@ -175,7 +175,7 @@ class Play extends Component {
             });
             
           }
-          // p1Arr = p1Arr.concat(cardsInPlay, winningsArr);
+          p1Arr = p1Arr.concat(cardsInPlay, winningsArr);
           console.log('p1 wins', p1Arr[p1Arr.length-2], p1Arr[p1Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);
           
         } else {
