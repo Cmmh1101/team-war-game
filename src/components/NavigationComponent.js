@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem,
-  
-} from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
 const Navigation = (props) => {
@@ -32,8 +25,8 @@ const Navigation = (props) => {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="text-white" to="/about">
-                  About
+                <NavLink className="text-white" to="/rules">
+                  Rules
                 </NavLink>
               </NavItem>
               <NavItem>

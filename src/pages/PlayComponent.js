@@ -32,6 +32,7 @@ class Play extends Component {
       playing: false,
       showCards: false,
       showButton: false,
+      itsWar: false,
     };
   }
 
@@ -116,6 +117,9 @@ class Play extends Component {
 
     //Copy the player hands and remove the current card AVOID MUTATING STATE DIRECTLY
     const pullCard = () => {
+      this.setState({
+        itsWar: false,
+      });
       //make a SHALLOW COPY of the playerDeck ARRAYS from STATE
       // console.log('p1Arr' + p1Arr);
 
@@ -194,6 +198,9 @@ class Play extends Component {
 
       console.log("inPlay", cardsInPlay);
       if (v1 === v2) {
+        this.setState({
+          itsWar: true,
+        });
         console.log("war");
         if (p1Arr.length < 5 && p1Arr.length < 5) {
           p1Arr.length < 5
@@ -293,6 +300,7 @@ class Play extends Component {
             showCards={this.state.showCards}
             p1Path={this.state.cardImgPath.playerOne}
             p2Path={this.state.cardImgPath.playerTwo}
+            itsWar={this.state.itsWar}
           />
         </div>
       </React.Fragment>
