@@ -16,8 +16,8 @@ class Play extends Component {
         playerTwo: [],
       },
       score: {
-        playerOne: [],
-        playerTwo: [],
+        playerOne: 0,
+        playerTwo: 0,
       },
       currentCard: {
         playerOne: [],
@@ -114,6 +114,9 @@ class Play extends Component {
     let p2CurrentCard = "";
     let p1Arr = [...this.state.playerDeck.playerOne];
     let p2Arr = [...this.state.playerDeck.playerTwo];
+    let p1Score = this.state.score.playerOne;
+    let p2Score = this.state.score.playerTwo;
+    // console.log(p1Score, typeof p2Score, "p1Score");
 
     //Copy the player hands and remove the current card AVOID MUTATING STATE DIRECTLY
     const pullCard = () => {
@@ -202,10 +205,49 @@ class Play extends Component {
           itsWar: true,
         });
         console.log("war");
-        if (p1Arr.length < 5 && p1Arr.length < 5) {
-          p1Arr.length < 5
-            ? alert("Player 2 has won the game")
-            : alert("Player 1 has won the game");
+        //this win condition is if both players have less than 5 cards and there is WAR. player with more cards wins, draw if players have same number of cards...EDGE CASE
+        if (p1Arr.length < 5 && p2Arr.length < 5) {
+          if (p1Arr.length === p2Arr.length) {
+            alert(
+              "Both players have lost all their cards. The game is a draw."
+            );
+          } else if (p1Arr.length > p2Arr.length) {
+            alert(
+              "Player 1 has won the game in a WAR. Player 2 did not have enough cards"
+            );
+            p1Score++;
+            this.setState({
+              score: { playerOne: p1Score, playerTwo: p2Score },
+            });
+          } else {
+            alert(
+              "Player 2 has won the game in a WAR. Player 1 did not have enough cards"
+            );
+            p2Score++;
+            this.setState({
+              score: { playerOne: p1Score, playerTwo: p2Score },
+            });
+          }
+          //this win condition is if a player doesn't have enough cards to stake a WAR at the end of the game. That player loses
+        } else if (p1Arr.length < 5 || p2Arr.length < 5) {
+          if (p1Arr.length < 5) {
+            alert(
+              "Player 2 has won the game in a WAR. Player 1 did not have enough cards"
+            );
+            p2Score++;
+            this.setState({
+              score: { playerOne: p1Score, playerTwo: p2Score },
+            });
+          } else {
+            alert(
+              "Player 1 has won the game in a WAR. Player 2 did not have enough cards"
+            );
+            p1Score++;
+            this.setState({
+              score: { playerOne: p1Score, playerTwo: p2Score },
+            });
+          }
+
           this.resetButtonHandler();
         } else {
           cardsInPlay = cardsInPlay.concat(
@@ -241,6 +283,10 @@ class Play extends Component {
           //NOT SURE IF THIS IS HAPPENING AT THE APPROPRIATE TIME!!!!!!!
           if (p2Arr.length === 0) {
             alert("Player One is the winner");
+            p1Score++;
+            this.setState({
+              score: { playerOne: p1Score, playerTwo: p2Score },
+            });
             this.resetButtonHandler();
           }
         }
@@ -254,7 +300,7 @@ class Play extends Component {
             cardsInLimbo: [],
           });
           //adds 'cardsInPlay' to 'p2Arr' if Player2 wins
-          p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
+          // p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
 
           console.log(
             "p1Card#",
@@ -266,6 +312,10 @@ class Play extends Component {
           //checks win condition for p2
           if (p1Arr.length === 0) {
             alert("Player Two is the winner");
+            p2Score++;
+            this.setState({
+              score: { playerOne: p1Score, playerTwo: p2Score },
+            });
             this.resetButtonHandler();
           }
         }
