@@ -31,11 +31,27 @@ iframe {
   overflow: hidden !important;
 }
 
+/* Buttons */
+
+.buttons {
+  background-color: #f3be4c;
+}
+
+.board-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+}
+
 .board {
   height: 500px;
   position: relative;
   padding: 0 !important;
   overflow: hidden !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cards {
@@ -50,12 +66,12 @@ iframe {
 }
 
 .card-down_1 {
-  bottom: 20px;
-  left: 0;
+  bottom: 0;
+  left: -20px;
 }
 .card-down_2 {
-  top: 20px;
-  right: 0;
+  top: 0;
+  right: -20px;
 }
 
 .play-area {
@@ -74,23 +90,21 @@ iframe {
 }
 
 .played-card_1 {
-  left: 25%;
+  left: 15%;
 }
 .played-card_2 {
-  right: 25%;
+  right: 15%;
 }
 
 /* War sign */
 
 .war-sign {
   width: 100px;
-  position: absolute;
-  top: 80px;
-  left: 100px;
+  animation: big 1s infinite alternate;
 }
 
 /* tablet view */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .played-cards img {
     width: 100%;
     transform: rotate(0);

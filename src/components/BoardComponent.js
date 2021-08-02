@@ -17,11 +17,11 @@ function Board(props) {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-12 d-flex flex-wrap align-items-center mx-auto">
-          <div className="col-2 text-center">
+        <div className="col-12 board-area">
+          <div className="col-md-2 text-center">
             <h1>Player One</h1>
           </div>
-          <div className="col-8">
+          <div className="col-md-8">
             {/* Board */}
             <div className="bg-dark board text-center">
               {/* face up played cards */}
@@ -36,7 +36,7 @@ function Board(props) {
               <div className="cards card-down_2"></div>
             </div>
           </div>
-          <div className="col-2 text-center">
+          <div className="col-md-2 text-center">
             <h1>Player Two</h1>
           </div>
         </div>

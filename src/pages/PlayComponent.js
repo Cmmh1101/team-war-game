@@ -28,7 +28,7 @@ class Play extends Component {
         playerTwo: "",
       },
       cardsInLimbo: [],
-      buttText: "Shuffle the Cards",
+      buttText: "Shuffle",
       playing: false,
       showCards: false,
       showButton: false,
@@ -38,14 +38,14 @@ class Play extends Component {
   resetButtonHandler() {
     if (this.state.playing && this.state.showButton) {
       this.setState({
-        buttText: "Shuffle the Cards",
+        buttText: "Shuffle",
         playing: false,
         showButton: false,
         showCards: false,
       });
     } else {
       this.setState({
-        buttText: "Reset the Game",
+        buttText: "Restart",
         playing: true,
         showButton: true,
       });

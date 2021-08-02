@@ -6,11 +6,11 @@ export default function Scoreboard(props) {
     <div className="container">
       <div className="row scoreboard mx-auto">
         <div className="col text-center">
-          <h1>Scoreboard</h1>
+          {/* <h1>Scoreboard</h1> */}
           {/* side to side scoreboard */}
-          <div className="col d-flex justify-content-between mb-2">
+          <div className="col d-flex justify-content-between mt-5">
             <div className="col-4">
-              <div className="">Player 1</div>
+              <div className="font-weight-bold">Player 1</div>
               <div className="">
                 <Table>
                   <thead>
@@ -29,7 +29,7 @@ export default function Scoreboard(props) {
               </div>
             </div>
             <div className="col-4">
-              <div className="">Player 2</div>
+              <div className="font-weight-bold">Player 2</div>
               <div className="">
                 <Table>
                   <thead>
