@@ -8,7 +8,7 @@ class Play extends Component {
     super(props);
 
     this.playCard = this.playCard.bind(this);
-    this.buttonHandler = this.buttonHandler.bind(this);
+    this.resetButtonHandler = this.resetButtonHandler.bind(this);
     this.shuffleDeck = this.shuffleDeck.bind(this);
     this.state = {
       playerDeck: {
@@ -35,7 +35,7 @@ class Play extends Component {
     };
   }
 
-  buttonHandler() {
+  resetButtonHandler() {
     if (this.state.playing && this.state.showButton) {
       this.setState({
         buttText: "Shuffle the Cards",
@@ -98,7 +98,7 @@ class Play extends Component {
     this.setState({
       playerDeck: { playerOne: p1Cards, playerTwo: p2Cards },
     });
-    this.buttonHandler();
+    this.resetButtonHandler();
   }
 
   playCard() {
@@ -199,7 +199,7 @@ class Play extends Component {
           p1Arr.length < 5
             ? alert("Player 2 has won the game")
             : alert("Player 1 has won the game");
-          this.buttonHandler();
+          this.resetButtonHandler();
         } else {
           cardsInPlay = cardsInPlay.concat(
             p1Arr.splice(0, 4),
@@ -234,7 +234,7 @@ class Play extends Component {
           //NOT SURE IF THIS IS HAPPENING AT THE APPROPRIATE TIME!!!!!!!
           if (p2Arr.length === 0) {
             alert("Player One is the winner");
-            this.buttonHandler();
+            this.resetButtonHandler();
           }
         }
 
@@ -259,7 +259,7 @@ class Play extends Component {
           //checks win condition for p2
           if (p1Arr.length === 0) {
             alert("Player Two is the winner");
-            this.buttonHandler();
+            this.resetButtonHandler();
           }
         }
 
