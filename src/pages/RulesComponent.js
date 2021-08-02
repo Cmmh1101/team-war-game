@@ -8,7 +8,7 @@ function Rules() {
       <div className="container text-white my-5">
         <div className="row">
           <div className="col">
-            <h1 className="text-center titles">Quaruple War Game Rules </h1>
+            <h1 className="text-center titles">Quadruple War Game Rules </h1>
           </div>
         </div>
         <div className="row">

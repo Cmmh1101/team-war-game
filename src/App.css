@@ -19,10 +19,25 @@ q {
 }
 
 .navbar {
-  height: 8vh;
+  height: 10vh;
   z-index: 3;
 }
 
+.logo-img {
+  height: 10vh;
+  width: 60px;
+}
+.logo-img img {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #000;
+}
+.card-logo_1 {
+  transform: rotate(-10deg);
+}
+.card-logo_2 {
+  transform: rotate(10deg);
+}
 .nav-links {
   width: 100%;
 }
@@ -76,8 +91,8 @@ iframe {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 92vh;
-  min-height: 92vh;
+  height: 90vh;
+  min-height: 90vh;
   max-height: auto;
   overflow: hidden;
 }
@@ -94,7 +109,7 @@ iframe {
   position: relative;
   padding: 0 !important;
   overflow: hidden !important;
-  background-color: rgb(55, 148, 117) !important;
+  background-color: #379475 !important;
 }
 
 .cards {
@@ -159,7 +174,7 @@ iframe {
 /* Contact */
 
 .main-section {
-  min-height: 92vh;
+  min-height: 90vh;
   max-height: auto;
   display: flex;
   justify-content: center;
