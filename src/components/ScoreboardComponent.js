@@ -5,7 +5,7 @@ export default function Scoreboard(props) {
   return (
     <div className="container">
       <div className="row scoreboard mx-auto">
-        <div className="col-10 text-center">
+        <div className="col text-center">
           <h1>Scoreboard</h1>
           {/* side to side scoreboard */}
           <div className="col d-flex justify-content-between mb-2">
