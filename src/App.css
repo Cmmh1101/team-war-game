@@ -28,13 +28,14 @@ iframe {
 
 .scoreboard {
   margin: 0 !important;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .board {
   height: 500px;
   position: relative;
   padding: 0 !important;
+  overflow: hidden !important;
 }
 
 .cards {
@@ -50,11 +51,11 @@ iframe {
 
 .card-down_1 {
   bottom: 20px;
-  left: 20px;
+  left: 0;
 }
 .card-down_2 {
   top: 20px;
-  right: 20px;
+  right: 0;
 }
 
 .play-area {
@@ -77,4 +78,27 @@ iframe {
 }
 .played-card_2 {
   right: 25%;
+}
+
+/* War sign */
+
+.war-sign {
+  width: 100px;
+  position: absolute;
+  top: 80px;
+  left: 100px;
+}
+
+/* tablet view */
+@media (max-width: 900px) {
+  .played-cards img {
+    width: 100%;
+    transform: rotate(0);
+  }
+  .played-card_1 {
+    left: 5%;
+  }
+  .played-card_2 {
+    right: 5%;
+  }
 }

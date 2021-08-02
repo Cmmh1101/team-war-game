@@ -16,8 +16,8 @@ class Play extends Component {
         playerTwo: [],
       },
       score: {
-        playerOne: 10,
-        playerTwo: 0,
+        playerOne: [],
+        playerTwo: [],
       },
       currentCard: {
         playerOne: [],
@@ -164,6 +164,7 @@ class Play extends Component {
       console.log("inPlay", cardsInPlay);
       if (v1 === v2) {
         console.log("war");
+
         //WRITE AN IF ELSE BLOCK TO SEE IF EITHER OR BOTH PLAYERS HAVE LESS THAN 5 CARDS
         cardsInPlay = cardsInPlay.concat(
           p1Arr.splice(0, 4),
