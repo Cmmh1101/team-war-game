@@ -12,7 +12,7 @@ export default function Controls(props) {
           {props.showButton ? (
             <button
               id="play"
-              className="col-2 m-1 buttons"
+              className="col-3 m-1 buttons"
               onClick={props.playCard}
             >
               Play
@@ -21,7 +21,7 @@ export default function Controls(props) {
 
           <button
             id="reset"
-            className="col-2 m-1 buttons"
+            className="col-3 m-1 buttons"
             onClick={props.shuffle}
           >
             {props.buttText}

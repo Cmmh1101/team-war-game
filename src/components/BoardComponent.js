@@ -29,7 +29,7 @@ function Board(props) {
               {/* face up played cards */}
               <div className="play-area">
                 {props.itsWar ? (
-                  <h1 className="war-sign text-dark bg-warning py-3">WAR</h1>
+                  <h1 className="war-sign text-dark bg-warning ">WAR</h1>
                 ) : null}
                 {props.showCards ? (
                   <Fade in>

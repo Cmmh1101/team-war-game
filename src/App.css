@@ -77,6 +77,9 @@ iframe {
   align-items: center;
   flex-direction: column;
   height: 92vh;
+  min-height: 92vh;
+  max-height: auto;
+  overflow: hidden;
 }
 
 .board-area {
@@ -143,6 +146,7 @@ iframe {
   left: 41%;
   animation: big 1s infinite alternate;
   border-radius: 5%;
+  z-index: 5;
 }
 /* Rules */
 
@@ -239,6 +243,16 @@ hr {
     position: absolute;
     top: 20%;
     left: 38%;
+    animation: big 1s infinite alternate;
+  }
+}
+@media (max-width: 500px) {
+  .war-sign {
+    width: 120px;
+    height: 50px;
+    position: absolute;
+    top: 25%;
+    left: 30%;
     animation: big 1s infinite alternate;
   }
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 import { NavLink } from "react-router-dom";
+import { NavbarBrand } from "reactstrap";
 
 const Navigation = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,9 +10,10 @@ const Navigation = (props) => {
 
   return (
     <Navbar className="navbar" light expand="sm">
-      <NavbarToggler onClick={toggle} />
-      <Collapse isOpen={isOpen} navbar>
-        <div className="container">
+      <div className="container">
+        <NavbarBrand to="/home">WC</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
           <Nav
             className="d-flex justify-content-between nav-links bg-white"
             navbar
@@ -41,8 +43,8 @@ const Navigation = (props) => {
               <hr class="dropdown-divider d-sm-none" />
             </NavItem>
           </Nav>
-        </div>
-      </Collapse>
+        </Collapse>
+      </div>
     </Navbar>
   );
 };
