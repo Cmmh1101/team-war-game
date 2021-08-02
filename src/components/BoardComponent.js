@@ -26,7 +26,7 @@ function Board(props) {
             <div className="bg-dark board text-center">
               {/* face up played cards */}
               <div className="play-area">
-                <h1 className="war-sign text-white bg-warning">WAR</h1>
+                {props.itsWar ? (<h1 className="war-sign text-white bg-warning">WAR</h1>) : null}
                 {props.showCards ? (
                   <Cards p1Path={props.p1Path} p2Path={props.p2Path} />
                 ) : null}

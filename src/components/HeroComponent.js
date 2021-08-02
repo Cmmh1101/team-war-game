@@ -10,7 +10,8 @@ function Hero() {
             <Col>
               <h1 className="display-3 mb-5">Quadruple War</h1>
               <p className="lead">
-                A React Card Game by Carla Montano and Will Prouty
+                <strong>A React Card Game</strong>
+                <br /> by Carla Montano and Will Prouty
               </p>
             </Col>
             <Col md={6}>
