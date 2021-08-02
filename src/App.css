@@ -19,7 +19,7 @@ q {
 }
 
 .navbar {
-  height: 10vh;
+  height: 11.75vh;
   z-index: 3;
 }
 
@@ -31,6 +31,7 @@ q {
   height: 100%;
   width: 100%;
   border: 1px solid #000;
+  margin: 5px 0;
 }
 .card-logo_1 {
   transform: rotate(-10deg);
