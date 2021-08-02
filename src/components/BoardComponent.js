@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade, Transform } from "react-animation-components";
 
 function Cards(props) {
   return (
@@ -18,17 +19,24 @@ function Board(props) {
     <div className="container">
       <div className="row">
         <div className="col-12 board-area">
-          <div className="col-md-2 text-center">
-            <h1>Player One</h1>
+          <div className="col-md-2 text-left d-flex justify-content-between text-white">
+            <span>Player One</span>{" "}
+            <span className="d-md-none">Player Two</span>
           </div>
           <div className="col-md-8">
             {/* Board */}
-            <div className="bg-dark board text-center">
+            <div className="board text-center">
               {/* face up played cards */}
               <div className="play-area">
-                {props.itsWar ? (<h1 className="war-sign text-white bg-warning">WAR</h1>) : null}
+                {props.itsWar ? (
+                  <h1 className="war-sign text-dark bg-warning py-3">WAR</h1>
+                ) : null}
                 {props.showCards ? (
-                  <Cards p1Path={props.p1Path} p2Path={props.p2Path} />
+                  <Fade in>
+                    <Transform enterTransform="translate(0, 250px)" in>
+                      <Cards p1Path={props.p1Path} p2Path={props.p2Path} />
+                    </Transform>
+                  </Fade>
                 ) : null}
               </div>
               {/* Face Down deck cards */}
@@ -36,8 +44,8 @@ function Board(props) {
               <div className="cards card-down_2"></div>
             </div>
           </div>
-          <div className="col-md-2 text-center">
-            <h1>Player Two</h1>
+          <div className="col-md-2 text-right">
+            <span className="d-none d-md-block text-white">Player Two</span>
           </div>
         </div>
       </div>

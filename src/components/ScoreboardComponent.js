@@ -8,11 +8,11 @@ export default function Scoreboard(props) {
         <div className="col text-center">
           {/* <h1>Scoreboard</h1> */}
           {/* side to side scoreboard */}
-          <div className="col d-flex justify-content-between mt-5">
+          <div className="col d-flex justify-content-between mt-5 text-white">
             <div className="col-4">
               <div className="font-weight-bold">Player 1</div>
               <div className="">
-                <Table>
+                <Table className="bg-white">
                   <thead>
                     <tr>
                       <th>Score</th>
@@ -31,7 +31,7 @@ export default function Scoreboard(props) {
             <div className="col-4">
               <div className="font-weight-bold">Player 2</div>
               <div className="">
-                <Table>
+                <Table className="bg-white">
                   <thead>
                     <tr>
                       <th>Score</th>

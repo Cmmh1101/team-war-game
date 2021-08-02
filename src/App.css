@@ -4,26 +4,58 @@
   box-sizing: border-box;
 }
 
-.navbar {
-  position: absolute;
-  top: 0;
-  bottom: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+q {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
 }
 
 .navbar {
+  height: 8vh;
+  z-index: 3;
+}
+
+.nav-links {
   width: 100%;
+}
+
+.navbar .navigation-link {
+  color: #000 !important;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease-in-out;
+}
+.navbar .navigation-link:hover {
+  color: #f3be4c !important;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 iframe {
   width: 100%;
-}
-
-.jumbo {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+}
+
+.hero-title {
+  font-size: 4rem;
+}
+
+.titles {
+  color: #f3be4c;
+}
+
+.btn-hero {
+  width: 41px;
+  height: 115px !important;
 }
 
 .scoreboard {
@@ -37,6 +69,16 @@ iframe {
   background-color: #f3be4c;
 }
 
+/* Play and board */
+
+.play-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 92vh;
+}
+
 .board-area {
   display: flex;
   justify-content: center;
@@ -45,13 +87,11 @@ iframe {
 }
 
 .board {
-  height: 500px;
+  height: 350px;
   position: relative;
   padding: 0 !important;
   overflow: hidden !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgb(55, 148, 117) !important;
 }
 
 .cards {
@@ -66,7 +106,7 @@ iframe {
 }
 
 .card-down_1 {
-  bottom: 0;
+  top: 0;
   left: -20px;
 }
 .card-down_2 {
@@ -74,14 +114,11 @@ iframe {
   right: -20px;
 }
 
-.play-area {
-}
-
 .played-cards {
   width: 100px;
   height: 80px;
   position: absolute;
-  top: 35%;
+  top: -100px;
 }
 
 .played-cards img {
@@ -90,29 +127,118 @@ iframe {
 }
 
 .played-card_1 {
-  left: 15%;
+  left: 100px;
 }
 .played-card_2 {
-  right: 15%;
+  right: 100px;
 }
 
 /* War sign */
 
+/* war active */
 .war-sign {
-  width: 100px;
+  width: 120px;
+  position: absolute;
+  top: 12%;
+  left: 41%;
   animation: big 1s infinite alternate;
+  border-radius: 5%;
+}
+/* Rules */
+
+.rules-card {
+  width: 40px;
+  height: 50px;
+  transform: rotate(25deg);
+}
+
+/* Contact */
+
+.main-section {
+  min-height: 92vh;
+  max-height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+}
+
+.contact-icons a i {
+  font-size: 4rem;
+  transition: all 0.3s ease-in-out;
+  color: #f3be4c;
+}
+
+.contact-icons a i:hover {
+  transform: scale(1.1);
+  color: #fff;
+}
+
+hr {
+  border-color: #fff !important;
+}
+
+.git-project span {
+  font-size: 1.5rem;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.git-project i {
+  font-size: 1.8rem;
+  color: #f3be4c;
+}
+.git-project:hover i {
+  font-size: 1.8rem;
+  color: #fff;
+  transform: scale(1.1);
+}
+.git-project:hover span {
+  font-size: 1.8rem;
+  color: #f3be4c;
+  transform: scale(1.1);
 }
 
 /* tablet view */
 @media (max-width: 1000px) {
+  .navbar .navigation-link {
+    color: #000 !important;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .war-sign {
+    width: 120px;
+    position: absolute;
+    top: 15%;
+    left: 36%;
+    animation: big 1s infinite alternate;
+  }
   .played-cards img {
     width: 100%;
     transform: rotate(0);
   }
   .played-card_1 {
-    left: 5%;
+    left: 10%;
   }
   .played-card_2 {
-    right: 5%;
+    right: 10%;
+  }
+}
+
+@media (max-width: 700px) {
+  .war-sign {
+    width: 120px;
+    position: absolute;
+    top: 20%;
+    left: 38%;
+    animation: big 1s infinite alternate;
   }
 }

@@ -14,7 +14,11 @@
     "reactstrap": "8.5.1",
     "web-vitals": "^1.0.1",
     "react-router-dom": "5.2.0",
-    "font-awesome": "4.7.0"
+    "font-awesome": "4.7.0",
+    "typeface-poppins": "^1.1.13",
+    "react-animation-components": "3.0.0",
+    "react-transition-group": "4.4.1"
+    
   },
   "scripts": {
     "start": "react-scripts start",

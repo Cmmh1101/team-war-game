@@ -1,79 +1,83 @@
 import React from "react";
-import { a } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ContactUs() {
   return (
-    <React.Fragment>
-      <div className="container">
+    <div className="bg-dark main-section">
+      <div className="container text-white">
         <div className="row">
-          <h1>Contact Us</h1>
+          <div className="col text-center mb-5 titles ">
+            <h1>Contact Us</h1>
+          </div>
         </div>
         <div className="row">
-          <div className="col">
+          <div className="col-6 text-center">
             <h3>Will Prouty</h3>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-6">
-            <a
-              href="https://www.linkedin.com/in/will-prouty-07882b93/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <div
+              className="col-12 d-flex
+                      align-items-center
+                      justify-content-center contact-icons contact-icons"
             >
-              LinkedIn
-            </a>
+              <Link
+                to={{
+                  pathname: "https://www.linkedin.com/in/will-prouty-07882b93/",
+                }}
+                target="_blank"
+                className="nav-link m-2"
+              >
+                <i class="fa fa-linkedin-square" aria-hidden="true" />
+              </Link>
+              <Link
+                to={{ pathname: "https://github.com/illfriday" }}
+                target="_blank"
+                className="nav-link m-2"
+              >
+                <i class="fa fa-github-square" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
-          <div className="col-6">
-            <a
-              href="https://github.com/illfriday"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Github
-            </a>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
+          <div className="col-6 text-center">
             <h3>Carla Montano</h3>
+            <div
+              className="col-12 d-flex
+                      align-items-center
+                      justify-content-center contact-icons contact-icons"
+            >
+              <Link
+                to={{ pathname: "https://www.linkedin.com/in/carla-montano" }}
+                target="_blank"
+                className="nav-link m-2"
+              >
+                <i className="fa fa-linkedin-square" aria-hidden="true" />
+              </Link>
+              <Link
+                to={{ pathname: "https://github.com/cmmh1101" }}
+                target="_blank"
+                className="nav-link m-2"
+              >
+                <i className="fa fa-github-square" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
+        <hr />
         <div className="row">
-          <div className="col-6">
-            <a
-              href="https://www.linkedin.com/in/carla-montano/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
-          </div>
-          <div className="col-6">
-            <a
-              href="https://github.com/Cmmh1101"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Github
-            </a>
-          </div>
-        </div>
-        <div className="row mt-2">
-          <div className="col">
-            <h3>Project Repository</h3>
-          </div>
-          <div className="col">
-            <a
-              href="https://github.com/Cmmh1101/team-war-game"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Quadruple War Github Repository
-            </a>
+          <div className="col-12 git-project d-flex justify-content-center flex-column text-center">
+            <h2>Project Repository</h2>
+            <div>
+              <Link
+                to={{ pathname: "https://github.com/Cmmh1101/team-war-game" }}
+                target="_blank"
+                className="nav-link m-2"
+              >
+                <i className="fa fa-github-square" aria-hidden="true" />
+                <span> Quadruple War Github Repository</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 

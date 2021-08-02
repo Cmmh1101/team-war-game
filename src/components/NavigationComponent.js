@@ -8,37 +8,42 @@ const Navigation = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
-      <Navbar className="navbar" color="secondary" dark expand="sm">
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <div className="container">
-            <Nav className="d-flex justify-content-between navbar" navbar>
-              <NavItem>
-                <NavLink className="text-white" to="/">
-                  Home
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="text-white" to="/play">
-                  Play
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="text-white" to="/rules">
-                  Rules
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="text-white" to="/contactus">
-                  Contact
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </div>
-        </Collapse>
-      </Navbar>
-    </div>
+    <Navbar className="navbar" light expand="sm">
+      <NavbarToggler onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
+        <div className="container">
+          <Nav
+            className="d-flex justify-content-between nav-links bg-white"
+            navbar
+          >
+            <NavItem>
+              <NavLink className="text-white navigation-link" to="/">
+                Home
+              </NavLink>
+              <hr class="dropdown-divider d-sm-none" />
+            </NavItem>
+            <NavItem>
+              <NavLink className="text-white navigation-link" to="/play">
+                Play
+              </NavLink>
+              <hr class="dropdown-divider d-sm-none" />
+            </NavItem>
+            <NavItem>
+              <NavLink className="text-white navigation-link" to="/rules">
+                Rules
+              </NavLink>
+              <hr class="dropdown-divider d-sm-none" />
+            </NavItem>
+            <NavItem>
+              <NavLink className="text-white navigation-link" to="/contactus">
+                Contact
+              </NavLink>
+              <hr class="dropdown-divider d-sm-none" />
+            </NavItem>
+          </Nav>
+        </div>
+      </Collapse>
+    </Navbar>
   );
 };
 

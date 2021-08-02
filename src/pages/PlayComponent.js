@@ -282,28 +282,26 @@ class Play extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <div className="Container">
-          <Scoreboard
-            p1wins={this.state.score.playerOne}
-            p2wins={this.state.score.playerTwo}
-            p1hand={this.state.playerDeck.playerOne.length}
-            p2hand={this.state.playerDeck.playerTwo.length}
-          />
-          <Controls
-            shuffle={this.shuffleDeck}
-            buttText={this.state.buttText}
-            playCard={this.playCard}
-            showButton={this.state.showButton}
-          />
-          <Board
-            showCards={this.state.showCards}
-            p1Path={this.state.cardImgPath.playerOne}
-            p2Path={this.state.cardImgPath.playerTwo}
-            itsWar={this.state.itsWar}
-          />
-        </div>
-      </React.Fragment>
+      <div className="bg-dark play-layout">
+        <Scoreboard
+          p1wins={this.state.score.playerOne}
+          p2wins={this.state.score.playerTwo}
+          p1hand={this.state.playerDeck.playerOne.length}
+          p2hand={this.state.playerDeck.playerTwo.length}
+        />
+        <Controls
+          shuffle={this.shuffleDeck}
+          buttText={this.state.buttText}
+          playCard={this.playCard}
+          showButton={this.state.showButton}
+        />
+        <Board
+          showCards={this.state.showCards}
+          p1Path={this.state.cardImgPath.playerOne}
+          p2Path={this.state.cardImgPath.playerTwo}
+          itsWar={this.state.itsWar}
+        />
+      </div>
     );
   }
 }
