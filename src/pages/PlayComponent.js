@@ -28,7 +28,7 @@ class Play extends Component {
         playerTwo: "",
       },
       cardsInLimbo: [],
-      buttText: "Shuffle the cards",
+      buttText: "Shuffle the Cards",
       playing: false,
       showCards: false,
       showButton: false,
@@ -36,11 +36,20 @@ class Play extends Component {
   }
 
   buttonHandler() {
-    this.setState({
-      buttText: "Reset the game",
-      playing: true,
-      showButton: true,
-    });
+    if (this.state.playing && this.state.showButton) {
+      this.setState({
+        buttText: "Shuffle the Cards",
+        playing: false,
+        showButton: false,
+        showCards: false,
+      });
+    } else {
+      this.setState({
+        buttText: "Reset the Game",
+        playing: true,
+        showButton: true,
+      });
+    }
   }
 
   shuffleDeck() {
@@ -98,13 +107,7 @@ class Play extends Component {
     });
     //shows the first draw
 
-    //checks win condition
     //NEED TO: update win count, re-shuffle and deal, make sure state is updated correctly(reset buttons, cards)
-    if (this.state.playerDeck.playerOne.length === 0) {
-      alert("Player Two is the winner");
-    } else if (this.state.playerDeck.playerTwo.length === 0) {
-      alert("Player One is the winner");
-    }
 
     let p1CurrentCard = "";
     let p2CurrentCard = "";
@@ -129,8 +132,8 @@ class Play extends Component {
     let p1CurrentVal = p1CurrentCard.substring(1);
     let p2CurrentVal = p2CurrentCard.substring(1);
     //sets the current value as the last character in the current card. returns STRING
-    console.log(`p1card: ${p1CurrentCard}, p1val:${p1CurrentVal} 
-     p2card: ${p2CurrentCard}, p2val:${p2CurrentVal}`);
+    // console.log(`p1card: ${p1CurrentCard}, p1val:${p1CurrentVal}
+    //  p2card: ${p2CurrentCard}, p2val:${p2CurrentVal}`);
 
     const checkNum = (val) => {
       if (isNaN(Number(val))) {
@@ -153,6 +156,7 @@ class Play extends Component {
     // console.log(checkNum('6'));
     //checks if current value is Nan. If it is converts the letter character to the appropriate number value, if not converts the value string to a number
 
+    //accepts 2 numbers and compares the values.
     const compareVal = (v1, v2) => {
       let cardsInPlay = [p1CurrentCard, p2CurrentCard];
       let winningsArr = [];
@@ -160,6 +164,7 @@ class Play extends Component {
       console.log("inPlay", cardsInPlay);
       if (v1 === v2) {
         console.log("war");
+        //WRITE AN IF ELSE BLOCK TO SEE IF EITHER OR BOTH PLAYERS HAVE LESS THAN 5 CARDS
         cardsInPlay = cardsInPlay.concat(
           p1Arr.splice(0, 4),
           p2Arr.splice(0, 4)
@@ -170,6 +175,21 @@ class Play extends Component {
         });
         cardsInPlay = [];
       } else if (v1 > v2) {
+        //checks win condition for p1
+
+        //NOT SURE IF THIS IS HAPPENING AT THE APPROPRIATE TIME!!!!!!!
+        console.log(
+          "p1Card#",
+          p1Arr.length,
+          "p2Card#",
+          p2Arr.length,
+          cardsInPlay
+        );
+
+        if (p2Arr.length === 0) {
+          alert("Player One is the winner");
+        }
+
         if (this.state.cardsInLimbo.length !== -1) {
           winningsArr = [...this.state.cardsInLimbo];
           this.setState({
@@ -177,16 +197,21 @@ class Play extends Component {
           });
         }
         p1Arr = p1Arr.concat(cardsInPlay, winningsArr);
-        console.log(
-          "p1 wins",
-          p1Arr[p1Arr.length - 2],
-          p1Arr[p1Arr.length - 1],
-          "p1#",
-          p1Arr.length,
-          "p2#",
-          p2Arr.length
-        );
+        // console.log('p1 wins', p1Arr[p1Arr.length-2], p1Arr[p1Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);
       } else {
+        //checks win condition for p2
+
+        console.log(
+          "p1Card#",
+          p1Arr.length,
+          "p2Card#",
+          p2Arr.length,
+          cardsInPlay
+        );
+        if (p1Arr.length === 0) {
+          alert("Player Two is the winner");
+        }
+
         if (this.state.cardsInLimbo.length !== -1) {
           winningsArr = [...this.state.cardsInLimbo];
           this.setState({
@@ -194,20 +219,13 @@ class Play extends Component {
           });
         }
         p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
-        console.log(
-          "p2wins",
-          p2Arr[p2Arr.length - 2],
-          p2Arr[p2Arr.length - 1],
-          "p1#",
-          p1Arr.length,
-          "p2#",
-          p2Arr.length
-        );
+        // console.log('p2wins', p2Arr[p2Arr.length-2], p2Arr[p2Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);
       }
-    };
-    //accepts 2 numbers and compares.
-    //NEED TO UPDATE LOGIC TO PUSH THE CARDS TO THE APPROPRIATE PLAYER
 
+      this.setState({
+        playerDeck: { playerOne: p1Arr, playerTwo: p2Arr },
+      });
+    };
     compareVal(checkNum(p1CurrentVal), checkNum(p2CurrentVal));
 
     const updatePath = (card, val) => {
@@ -230,7 +248,7 @@ class Play extends Component {
           console.log("Suit error");
       }
       path += ".png";
-      console.log(path, typeof path);
+      // console.log(path, typeof path);
       return path;
     };
 
