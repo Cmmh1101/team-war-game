@@ -153,81 +153,8 @@ class Play extends Component {
         return parseInt(val);
       }
     };
-    // console.log(checkNum('6'));
+
     //checks if current value is Nan. If it is converts the letter character to the appropriate number value, if not converts the value string to a number
-
-    //accepts 2 numbers and compares the values.
-    const compareVal = (v1, v2) => {
-      let cardsInPlay = [p1CurrentCard, p2CurrentCard];
-      let winningsArr = [];
-
-      console.log("inPlay", cardsInPlay);
-      if (v1 === v2) {
-        console.log("war");
-
-        //WRITE AN IF ELSE BLOCK TO SEE IF EITHER OR BOTH PLAYERS HAVE LESS THAN 5 CARDS
-        cardsInPlay = cardsInPlay.concat(
-          p1Arr.splice(0, 4),
-          p2Arr.splice(0, 4)
-        );
-        console.log(cardsInPlay);
-        this.setState({
-          cardsInLimbo: cardsInPlay,
-        });
-        cardsInPlay = [];
-      } else if (v1 > v2) {
-        //checks win condition for p1
-
-        //NOT SURE IF THIS IS HAPPENING AT THE APPROPRIATE TIME!!!!!!!
-        console.log(
-          "p1Card#",
-          p1Arr.length,
-          "p2Card#",
-          p2Arr.length,
-          cardsInPlay
-        );
-
-        if (p2Arr.length === 0) {
-          alert("Player One is the winner");
-        }
-
-        if (this.state.cardsInLimbo.length !== -1) {
-          winningsArr = [...this.state.cardsInLimbo];
-          this.setState({
-            cardsInLimbo: [],
-          });
-        }
-        p1Arr = p1Arr.concat(cardsInPlay, winningsArr);
-        // console.log('p1 wins', p1Arr[p1Arr.length-2], p1Arr[p1Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);
-      } else {
-        //checks win condition for p2
-
-        console.log(
-          "p1Card#",
-          p1Arr.length,
-          "p2Card#",
-          p2Arr.length,
-          cardsInPlay
-        );
-        if (p1Arr.length === 0) {
-          alert("Player Two is the winner");
-        }
-
-        if (this.state.cardsInLimbo.length !== -1) {
-          winningsArr = [...this.state.cardsInLimbo];
-          this.setState({
-            cardsInLimbo: [],
-          });
-        }
-        p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
-        // console.log('p2wins', p2Arr[p2Arr.length-2], p2Arr[p2Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);
-      }
-
-      this.setState({
-        playerDeck: { playerOne: p1Arr, playerTwo: p2Arr },
-      });
-    };
-    compareVal(checkNum(p1CurrentVal), checkNum(p2CurrentVal));
 
     const updatePath = (card, val) => {
       let path = `../cards/`;
@@ -259,6 +186,91 @@ class Play extends Component {
         playerTwo: updatePath(p2CurrentCard, p2CurrentVal),
       },
     });
+
+    //accepts 2 numbers and compares the values.
+    const compareVal = (v1, v2) => {
+      let cardsInPlay = [p1CurrentCard, p2CurrentCard];
+      let winningsArr = [];
+
+      console.log("inPlay", cardsInPlay);
+      if (v1 === v2) {
+        console.log("war");
+        if (p1Arr.length < 5 && p1Arr.length < 5) {
+          p1Arr.length < 5
+            ? alert("Player 2 has won the game")
+            : alert("Player 1 has won the game");
+          this.buttonHandler();
+        } else {
+          cardsInPlay = cardsInPlay.concat(
+            p1Arr.splice(0, 4),
+            p2Arr.splice(0, 4)
+          );
+          console.log(cardsInPlay);
+          this.setState({
+            cardsInLimbo: cardsInPlay,
+          });
+          cardsInPlay = [];
+        }
+      } else if (v1 > v2) {
+        //checks if the are 'cardsInLimbo' in STATE from a pervious WAR and adds to 'winningsArr' clears 'cardsInLimbo';
+        if (this.state.cardsInLimbo.length !== -1) {
+          winningsArr = [...this.state.cardsInLimbo];
+          this.setState({
+            cardsInLimbo: [],
+          });
+          //adds 'cardsInPlay' to 'p1Arr' if Player1 wins
+
+          p1Arr = p1Arr.concat(cardsInPlay, winningsArr);
+
+          console.log(
+            "p1Card#",
+            p1Arr.length,
+            "p2Card#",
+            p2Arr.length,
+            cardsInPlay
+          );
+          //checks win condition for p1
+
+          //NOT SURE IF THIS IS HAPPENING AT THE APPROPRIATE TIME!!!!!!!
+          if (p2Arr.length === 0) {
+            alert("Player One is the winner");
+            this.buttonHandler();
+          }
+        }
+
+        // console.log('p1 wins', p1Arr[p1Arr.length-2], p1Arr[p1Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);
+      } else {
+        //checks if the are 'cardsInLimbo' in STATE from a pervious WAR and adds to 'winningsArr' clears 'cardsInLimbo';
+        if (this.state.cardsInLimbo.length !== -1) {
+          winningsArr = [...this.state.cardsInLimbo];
+          this.setState({
+            cardsInLimbo: [],
+          });
+          //adds 'cardsInPlay' to 'p2Arr' if Player2 wins
+          p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
+
+          console.log(
+            "p1Card#",
+            p1Arr.length,
+            "p2Card#",
+            p2Arr.length,
+            cardsInPlay
+          );
+          //checks win condition for p2
+          if (p1Arr.length === 0) {
+            alert("Player Two is the winner");
+            this.buttonHandler();
+          }
+        }
+
+        // console.log('p2wins', p2Arr[p2Arr.length-2], p2Arr[p2Arr.length-1], 'p1#', p1Arr.length, 'p2#', p2Arr.length);
+      }
+
+      this.setState({
+        playerDeck: { playerOne: p1Arr, playerTwo: p2Arr },
+      });
+    };
+    compareVal(checkNum(p1CurrentVal), checkNum(p2CurrentVal));
   }
 
   render() {
