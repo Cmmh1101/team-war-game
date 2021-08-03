@@ -107,6 +107,7 @@ iframe {
 
 .board {
   height: 350px;
+
   position: relative;
   padding: 0 !important;
   overflow: hidden !important;
