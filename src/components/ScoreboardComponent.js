@@ -10,7 +10,7 @@ export default function Scoreboard(props) {
           <div className="col-6 col-md-4 px-0">
             <div className="font-weight-bold text-center">Player 1</div>
             <div className="">
-              <Table className="bg-white border border-2 border-start">
+              <Table className="bg-white border border-2 border-start text-center">
                 <thead>
                   <tr>
                     <th>Score</th>
@@ -29,7 +29,7 @@ export default function Scoreboard(props) {
           <div className="col-6 col-md-4 px-0">
             <div className="font-weight-bold text-center">Player 2</div>
             <div className="">
-              <Table className="bg-white border border-2 border-end">
+              <Table className="bg-white border border-2 border-end text-center">
                 <thead>
                   <tr>
                     <th>Score</th>

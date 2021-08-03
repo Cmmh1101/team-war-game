@@ -38,6 +38,16 @@ function Board(props) {
                     </Transform>
                   </Fade>
                 ) : null}
+                <Fade in>
+                  <Transform enterTransform="translate(0, 250px)" in>
+                    <div className="war-down-cards">
+                      <img
+                        src="../cards/backcard.jpg"
+                        alt="four cards facing down"
+                      />
+                    </div>
+                  </Transform>
+                </Fade>
               </div>
               {/* Face Down deck cards */}
               <div className="cards card-down_1"></div>
