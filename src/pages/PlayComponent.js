@@ -253,6 +253,7 @@ class Play extends Component {
             p2Score++;
             this.setState({
               score: { playerOne: p1Score, playerTwo: p2Score },
+              itsWar: false,
             });
           } else {
             alert(
@@ -261,6 +262,7 @@ class Play extends Component {
             p1Score++;
             this.setState({
               score: { playerOne: p1Score, playerTwo: p2Score },
+              itsWar: false,
             });
           }
 
