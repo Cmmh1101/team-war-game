@@ -13,7 +13,7 @@ function Hero() {
               <strong>A React Card Game</strong>
               <br /> by Carla Montano and Will Prouty
             </p>
-            <Link to="/play" className="col text-warning mb-lg-0 btn-hero">
+            <Link to="/play" className="col mb-3 text-warning mb-lg-0 btn-hero">
               PLAY <i className="fa fa-arrow-right" aria-hidden="true" />
             </Link>
           </Col>
