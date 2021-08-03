@@ -353,7 +353,7 @@ class Play extends Component {
 
   render() {
     return (
-      <div className="bg-dark play-layout">
+      <div className="play-layout">
         <Scoreboard
           p1wins={this.state.score.playerOne}
           p2wins={this.state.score.playerTwo}

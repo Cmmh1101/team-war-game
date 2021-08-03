@@ -91,6 +91,7 @@ iframe {
 /* Play and board */
 
 .play-layout {
+  background-color: #0d1117;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -212,6 +213,7 @@ iframe {
 .main-section {
   min-height: 88.25vh;
   max-height: auto;
+  background-color: #0d1117 !important;
   display: flex;
   justify-content: center;
   align-items: center;

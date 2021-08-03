@@ -5,7 +5,7 @@ import { Media } from "reactstrap";
 
 function Rules() {
   return (
-    <div className="bg-dark main-section">
+    <div className="main-section">
       <div className="container text-white my-5">
         <div className="row">
           <div className="col">

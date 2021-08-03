@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function ContactUs() {
   return (
-    <div className="bg-dark main-section">
+    <div className="main-section">
       <div className="container text-white">
         <div className="row">
           <div className="col text-center mb-5 titles ">
