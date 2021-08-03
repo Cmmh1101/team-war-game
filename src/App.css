@@ -92,8 +92,8 @@ iframe {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 90vh;
-  min-height: 90vh;
+  height: 88.25vh;
+  min-height: 88.25vh;
   max-height: auto;
   overflow: hidden;
 }
@@ -175,7 +175,7 @@ iframe {
 /* Contact */
 
 .main-section {
-  min-height: 90vh;
+  min-height: 88.25vh;
   max-height: auto;
   display: flex;
   justify-content: center;
