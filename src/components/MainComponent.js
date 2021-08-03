@@ -11,7 +11,7 @@ function Main() {
     <React.Fragment>
       <Navigation />
       <Switch>
-        <Route path="/homepage" component={Homepage} />
+        <Route path="/" component={Homepage} />
         <Route exact path="/play" component={Play} />
         <Route exact path="/rules" component={Rules} />
         <Route exact path="/contactus" component={ContactUs} />
