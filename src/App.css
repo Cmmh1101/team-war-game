@@ -70,8 +70,11 @@ iframe {
 }
 
 .btn-hero {
-  width: 41px;
-  height: 115px !important;
+  font-size: 2rem;
+}
+.btn-hero:hover {
+  font-size: 2rem;
+  text-decoration: none;
 }
 
 .scoreboard {

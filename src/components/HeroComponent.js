@@ -14,8 +14,7 @@ function Hero() {
               <br /> by Carla Montano and Will Prouty
             </p>
             <Link to="/play" className="col text-warning mb-lg-0 btn-hero">
-              PLAY
-              <i class="fa fa-arrow-right" aria-hidden="true" />
+              PLAY <i className="fa fa-arrow-right" aria-hidden="true" />
             </Link>
           </Col>
           <Col lg={6}>
