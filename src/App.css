@@ -43,16 +43,35 @@ q {
   width: 100%;
 }
 
-iframe {
-  width: 100%;
+.navbar .navigation-link {
+  color: #000 !important;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease-in-out;
+}
+.navbar .navigation-link:hover {
+  color: #f3be4c !important;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.jumbo {
-  height: 100vh;
+iframe {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+}
+
+.hero-title {
+  font-size: 4rem;
+}
+
+.titles {
+  color: #f3be4c;
+}
+
+.btn-hero {
+  width: 41px;
+  height: 115px !important;
 }
 
 .scoreboard {
@@ -87,13 +106,11 @@ iframe {
 }
 
 .board {
-  height: 500px;
+  height: 350px;
   position: relative;
   padding: 0 !important;
   overflow: hidden !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #379475 !important;
 }
 
 .cards {
@@ -108,7 +125,7 @@ iframe {
 }
 
 .card-down_1 {
-  bottom: 0;
+  top: 0;
   left: -20px;
 }
 .card-down_2 {
@@ -116,14 +133,11 @@ iframe {
   right: -20px;
 }
 
-.play-area {
-}
-
 .played-cards {
   width: 100px;
   height: 80px;
   position: absolute;
-  top: 35%;
+  top: -100px;
 }
 
 .played-cards img {
@@ -132,16 +146,20 @@ iframe {
 }
 
 .played-card_1 {
-  left: 15%;
+  left: 100px;
 }
 .played-card_2 {
-  right: 15%;
+  right: 100px;
 }
 
 /* War sign */
 
+/* war active */
 .war-sign {
-  width: 100px;
+  width: 120px;
+  position: absolute;
+  top: 12%;
+  left: 41%;
   animation: big 1s infinite alternate;
   border-radius: 5%;
   z-index: 5;
@@ -203,15 +221,45 @@ hr {
 
 /* tablet view */
 @media (max-width: 1000px) {
+  .navbar .navigation-link {
+    color: #000 !important;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .war-sign {
+    width: 120px;
+    position: absolute;
+    top: 15%;
+    left: 36%;
+    animation: big 1s infinite alternate;
+  }
   .played-cards img {
     width: 100%;
     transform: rotate(0);
   }
   .played-card_1 {
-    left: 5%;
+    left: 10%;
   }
   .played-card_2 {
-    right: 5%;
+    right: 10%;
+  }
+}
+
+@media (max-width: 700px) {
+  .war-sign {
+    width: 120px;
+    position: absolute;
+    top: 20%;
+    left: 38%;
+    animation: big 1s infinite alternate;
   }
 }
 @media (max-width: 500px) {
