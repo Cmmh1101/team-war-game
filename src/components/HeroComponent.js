@@ -7,13 +7,13 @@ function Hero() {
     <div className=" bg-dark main-section text-white text-center">
       <Container>
         <Row>
-          <Col className="d-flex justify-content-center align-items-center flex-column mb-3">
-            <h1 className="mb-5 titles hero-title">Quadruple War</h1>
+          <Col className="d-flex justify-content-center align-items-center flex-column">
+            <h1 className="my-5 titles hero-title">Quadruple War</h1>
             <p className="lead">
               <strong>A React Card Game</strong>
               <br /> by Carla Montano and Will Prouty
             </p>
-            <Link to="/play" className="col mb-2 text-warning mb-lg-0 btn-hero">
+            <Link to="/play" className="col text-warning mb-lg-0 btn-hero">
               PLAY NOW <i class="fa fa-arrow-right" aria-hidden="true" />
             </Link>
           </Col>
