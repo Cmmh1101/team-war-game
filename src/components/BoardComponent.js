@@ -14,6 +14,87 @@ function Cards(props) {
   );
 }
 
+function WarCards() {
+  return (
+    <Fade in>
+      {/* player one war down cards */}
+      <Transform enterTransform="translate(36px, 150px)" in>
+        <div className="war-down-cards">
+          <img
+            className="war-down-card_1"
+            src="../cards/backcard.jpg"
+            alt="four cards facing down"
+          />
+        </div>
+      </Transform>
+      <Transform enterTransform="translate(26px, 150px)" in>
+        <div className="war-down-cards">
+          <img
+            className="war-down-card_1"
+            src="../cards/backcard.jpg"
+            alt="four cards facing down"
+          />
+        </div>
+      </Transform>
+      <Transform enterTransform="translate(16px, 150px)" in>
+        <div className="war-down-cards">
+          <img
+            className="war-down-card_1"
+            src="../cards/backcard.jpg"
+            alt="four cards facing down"
+          />
+        </div>
+      </Transform>
+      <Transform enterTransform="translate(6px, 150px)" in>
+        <div className="war-down-cards">
+          <img
+            className="war-down-card_1"
+            src="../cards/backcard.jpg"
+            alt="four cards facing down"
+          />
+        </div>
+      </Transform>
+      {/* player TWO war down cards */}
+      <Transform enterTransform="translate(8px, 150px)" in>
+        <div className="war-down-cards_2">
+          <img
+            className="war-down-card_2"
+            src="../cards/backcard.jpg"
+            alt="four cards facing down"
+          />
+        </div>
+      </Transform>
+      <Transform enterTransform="translate(18px, 150px)" in>
+        <div className="war-down-cards_2">
+          <img
+            className="war-down-card_2"
+            src="../cards/backcard.jpg"
+            alt="four cards facing down"
+          />
+        </div>
+      </Transform>
+      <Transform enterTransform="translate(28px, 150px)" in>
+        <div className="war-down-cards_2">
+          <img
+            className="war-down-card_2"
+            src="../cards/backcard.jpg"
+            alt="four cards facing down"
+          />
+        </div>
+      </Transform>
+      <Transform enterTransform="translate(38px, 150px)" in>
+        <div className="war-down-cards_2">
+          <img
+            className="war-down-card_2"
+            src="../cards/backcard.jpg"
+            alt="four cards facing down"
+          />
+        </div>
+      </Transform>
+    </Fade>
+  );
+}
+
 function Board(props) {
   return (
     <div className="container">
@@ -28,82 +109,7 @@ function Board(props) {
             <div className="board text-center">
               {/* face up played cards */}
               <div className="play-area">
-                <Fade in>
-                  {/* player one war down cards */}
-                  <Transform enterTransform="translate(36px, 150px)" in>
-                    <div className="war-down-cards">
-                      <img
-                        className="war-down-card_1"
-                        src="../cards/backcard.jpg"
-                        alt="four cards facing down"
-                      />
-                    </div>
-                  </Transform>
-                  <Transform enterTransform="translate(26px, 150px)" in>
-                    <div className="war-down-cards">
-                      <img
-                        className="war-down-card_1"
-                        src="../cards/backcard.jpg"
-                        alt="four cards facing down"
-                      />
-                    </div>
-                  </Transform>
-                  <Transform enterTransform="translate(16px, 150px)" in>
-                    <div className="war-down-cards">
-                      <img
-                        className="war-down-card_1"
-                        src="../cards/backcard.jpg"
-                        alt="four cards facing down"
-                      />
-                    </div>
-                  </Transform>
-                  <Transform enterTransform="translate(6px, 150px)" in>
-                    <div className="war-down-cards">
-                      <img
-                        className="war-down-card_1"
-                        src="../cards/backcard.jpg"
-                        alt="four cards facing down"
-                      />
-                    </div>
-                  </Transform>
-                  {/* player TWO war down cards */}
-                  <Transform enterTransform="translate(8px, 150px)" in>
-                    <div className="war-down-cards_2">
-                      <img
-                        className="war-down-card_2"
-                        src="../cards/backcard.jpg"
-                        alt="four cards facing down"
-                      />
-                    </div>
-                  </Transform>
-                  <Transform enterTransform="translate(18px, 150px)" in>
-                    <div className="war-down-cards_2">
-                      <img
-                        className="war-down-card_2"
-                        src="../cards/backcard.jpg"
-                        alt="four cards facing down"
-                      />
-                    </div>
-                  </Transform>
-                  <Transform enterTransform="translate(28px, 150px)" in>
-                    <div className="war-down-cards_2">
-                      <img
-                        className="war-down-card_2"
-                        src="../cards/backcard.jpg"
-                        alt="four cards facing down"
-                      />
-                    </div>
-                  </Transform>
-                  <Transform enterTransform="translate(38px, 150px)" in>
-                    <div className="war-down-cards_2">
-                      <img
-                        className="war-down-card_2"
-                        src="../cards/backcard.jpg"
-                        alt="four cards facing down"
-                      />
-                    </div>
-                  </Transform>
-                </Fade>
+                {props.cardsInLimbo ? WarCards() : null}
               </div>
 
               {props.itsWar ? (

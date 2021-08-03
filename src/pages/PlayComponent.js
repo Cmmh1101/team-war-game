@@ -39,10 +39,14 @@ class Play extends Component {
   }
 
   playButtonHandler() {
-    if (this.state.itsWar) {
-      this.setState({
-        warCards: true,
-      });
+    if (this.state.cardsInLimbo.length !== -1) {
+      if (this.state.warCards) {
+        return null;
+      } else {
+        this.setState({
+          warCards: true,
+        });
+      }
     } else {
       this.setState({
         warCards: false,
@@ -133,9 +137,9 @@ class Play extends Component {
 
     //Copy the player hands and remove the current card AVOID MUTATING STATE DIRECTLY
     const pullCard = () => {
-      this.setState({
-        itsWar: false,
-      });
+      // this.setState({
+      //   itsWar: false,
+      // });
       //make a SHALLOW COPY of the playerDeck ARRAYS from STATE
       // console.log('p1Arr' + p1Arr);
 
@@ -216,6 +220,7 @@ class Play extends Component {
       if (v1 === v2) {
         this.setState({
           itsWar: true,
+          warCards: true,
         });
         console.log("war");
         //this win condition is if both players have less than 5 cards and there is WAR. player with more cards wins, draw if players have same number of cards...EDGE CASE
@@ -279,6 +284,7 @@ class Play extends Component {
           winningsArr = [...this.state.cardsInLimbo];
           this.setState({
             cardsInLimbo: [],
+            itsWar: false,
           });
           //adds 'cardsInPlay' to 'p1Arr' if Player1 wins
 
@@ -311,6 +317,7 @@ class Play extends Component {
           winningsArr = [...this.state.cardsInLimbo];
           this.setState({
             cardsInLimbo: [],
+            itsWar: false,
           });
           //adds 'cardsInPlay' to 'p2Arr' if Player2 wins
           p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
@@ -365,6 +372,8 @@ class Play extends Component {
           p1Path={this.state.cardImgPath.playerOne}
           p2Path={this.state.cardImgPath.playerTwo}
           itsWar={this.state.itsWar}
+          warCards={this.state.warCards}
+          cardsInLimbo={this.state.cardsInLimbo.length !== -1 ? true : false}
         />
       </div>
     );
