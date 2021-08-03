@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import Scoreboard from "../components/ScoreboardComponent";
 import Board from "../components/BoardComponent";
 import Controls from "../components/ControlsComponent";
-
 class Play extends Component {
   constructor(props) {
     super(props);
-
     this.playCard = this.playCard.bind(this);
     this.playButtonHandler = this.playButtonHandler.bind(this);
     this.resetButtonHandler = this.resetButtonHandler.bind(this);
@@ -39,7 +37,7 @@ class Play extends Component {
   }
 
   playButtonHandler() {
-    if (this.state.cardsInLimbo.length !== -1) {
+    if (this.state.cardsInLimbo.length > 0) {
       if (this.state.warCards) {
         return null;
       } else {
@@ -69,7 +67,6 @@ class Play extends Component {
       });
     }
   }
-
   shuffleDeck() {
     const deck = [];
     const suits = ["C", "D", "H", "S"];
@@ -88,7 +85,6 @@ class Play extends Component {
       "K",
       "A",
     ];
-
     for (let suitCount = 0; suitCount < 4; suitCount++) {
       // console.log(suits[suitCount]);
       for (let valCount = 0; valCount < 13; valCount++) {
@@ -152,7 +148,6 @@ class Play extends Component {
       //update the playerDeck in the STATE - 1 card
     };
     pullCard();
-
     let p1CurrentVal = p1CurrentCard.substring(1);
     let p2CurrentVal = p2CurrentCard.substring(1);
     //sets the current value as the last character in the current card. returns STRING
@@ -216,6 +211,9 @@ class Play extends Component {
       let cardsInPlay = [p1CurrentCard, p2CurrentCard];
       let winningsArr = [];
 
+      this.setState({
+        showWarCards: this.state.cardsInLimbo.length > 0,
+      });
       console.log("inPlay", cardsInPlay);
       if (v1 === v2) {
         this.setState({
@@ -372,8 +370,7 @@ class Play extends Component {
           p1Path={this.state.cardImgPath.playerOne}
           p2Path={this.state.cardImgPath.playerTwo}
           itsWar={this.state.itsWar}
-          warCards={this.state.warCards}
-          cardsInLimbo={this.state.cardsInLimbo.length !== -1 ? true : false}
+          showWarCards={this.state.showWarCards}
         />
       </div>
     );
@@ -381,4 +378,3 @@ class Play extends Component {
 }
 
 export default Play;
-//moved presentational components for the Scoreboard and game board(Board) into separate components

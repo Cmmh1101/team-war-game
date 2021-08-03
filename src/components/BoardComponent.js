@@ -109,7 +109,7 @@ function Board(props) {
             <div className="board text-center">
               {/* face up played cards */}
               <div className="play-area">
-                {props.cardsInLimbo ? WarCards() : null}
+                {props.showWarCards ? WarCards() : null}
               </div>
 
               {props.itsWar ? (
