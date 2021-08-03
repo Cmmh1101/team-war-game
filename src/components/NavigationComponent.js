@@ -30,19 +30,19 @@ const Navigation = (props) => {
               <NavLink className="text-white navigation-link mx-4" to="/home">
                 Home
               </NavLink>
-              <hr class="dropdown-divider d-sm-none" />
+              <hr className="dropdown-divider d-sm-none" />
             </NavItem>
             <NavItem>
               <NavLink className="text-white navigation-link mx-4" to="/play">
                 Play
               </NavLink>
-              <hr class="dropdown-divider d-sm-none" />
+              <hr className="dropdown-divider d-sm-none" />
             </NavItem>
             <NavItem>
               <NavLink className="text-white navigation-link mx-4" to="/rules">
                 Rules
               </NavLink>
-              <hr class="dropdown-divider d-sm-none" />
+              <hr className="dropdown-divider d-sm-none" />
             </NavItem>
             <NavItem>
               <NavLink
@@ -51,7 +51,7 @@ const Navigation = (props) => {
               >
                 Contact
               </NavLink>
-              <hr class="dropdown-divider d-sm-none" />
+              <hr className="dropdown-divider d-sm-none" />
             </NavItem>
           </Nav>
         </Collapse>

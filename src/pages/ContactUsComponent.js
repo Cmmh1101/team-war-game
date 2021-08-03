@@ -25,14 +25,14 @@ function ContactUs() {
                 target="_blank"
                 className="nav-link m-2"
               >
-                <i class="fa fa-linkedin-square" aria-hidden="true" />
+                <i className="fa fa-linkedin-square" aria-hidden="true" />
               </Link>
               <Link
                 to={{ pathname: "https://github.com/illfriday" }}
                 target="_blank"
                 className="nav-link m-2"
               >
-                <i class="fa fa-github-square" aria-hidden="true" />
+                <i className="fa fa-github-square" aria-hidden="true" />
               </Link>
             </div>
           </div>
