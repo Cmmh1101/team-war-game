@@ -8,6 +8,7 @@ class Play extends Component {
     super(props);
 
     this.playCard = this.playCard.bind(this);
+    this.playButtonHandler = this.playButtonHandler.bind(this);
     this.resetButtonHandler = this.resetButtonHandler.bind(this);
     this.shuffleDeck = this.shuffleDeck.bind(this);
     this.state = {
@@ -33,9 +34,21 @@ class Play extends Component {
       showCards: false,
       showButton: false,
       itsWar: false,
+      warCards: false,
     };
   }
 
+  playButtonHandler() {
+    if (this.state.itsWar) {
+      this.setState({
+        warCards: true,
+      });
+    } else {
+      this.setState({
+        warCards: false,
+      });
+    }
+  }
   resetButtonHandler() {
     if (this.state.playing && this.state.showButton) {
       this.setState({
@@ -280,7 +293,6 @@ class Play extends Component {
           );
           //checks win condition for p1
 
-          //NOT SURE IF THIS IS HAPPENING AT THE APPROPRIATE TIME!!!!!!!
           if (p2Arr.length === 0) {
             alert("Player One is the winner");
             p1Score++;
@@ -288,6 +300,7 @@ class Play extends Component {
               score: { playerOne: p1Score, playerTwo: p2Score },
             });
             this.resetButtonHandler();
+            this.playButtonHandler();
           }
         }
 
@@ -317,6 +330,7 @@ class Play extends Component {
               score: { playerOne: p1Score, playerTwo: p2Score },
             });
             this.resetButtonHandler();
+            this.playButtonHandler();
           }
         }
 
@@ -344,6 +358,7 @@ class Play extends Component {
           buttText={this.state.buttText}
           playCard={this.playCard}
           showButton={this.state.showButton}
+          warCards={this.playButtonHandler}
         />
         <Board
           showCards={this.state.showCards}

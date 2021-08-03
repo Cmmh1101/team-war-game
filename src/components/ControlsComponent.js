@@ -1,6 +1,11 @@
 import React from "react";
 
 export default function Controls(props) {
+  function playCards() {
+    props.warCards();
+    props.playCard();
+  }
+
   return (
     <div className="container">
       <div className="row">
@@ -10,11 +15,7 @@ export default function Controls(props) {
       "
         >
           {props.showButton ? (
-            <button
-              id="play"
-              className="col-3 m-1 buttons"
-              onClick={props.playCard}
-            >
+            <button id="play" className="col-3 m-1 buttons" onClick={playCards}>
               Play
             </button>
           ) : null}
