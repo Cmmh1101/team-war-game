@@ -300,7 +300,7 @@ class Play extends Component {
             cardsInLimbo: [],
           });
           //adds 'cardsInPlay' to 'p2Arr' if Player2 wins
-          // p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
+          p2Arr = p2Arr.concat(cardsInPlay, winningsArr);
 
           console.log(
             "p1Card#",
