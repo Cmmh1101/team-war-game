@@ -1,9 +1,8 @@
 import React from "react";
 import { Media } from "reactstrap";
-import { FadeTransform, Fade, Stagger } from "react-animation-components";
+import { FadeTransform } from "react-animation-components";
 
 function Rules() {
-  const items = ["first"];
   return (
     <div className="main-section">
       <div className="container text-white my-5">
