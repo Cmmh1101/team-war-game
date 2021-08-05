@@ -104,7 +104,7 @@ function Board(props) {
             <span>Player One</span>{" "}
             <span className="d-md-none">Player Two</span>
           </div>
-          <div className="col-md-8">
+          <div className="">
             {/* Board */}
             <div className="board text-center">
               {/* face up played cards */}
