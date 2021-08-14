@@ -18,6 +18,10 @@ q {
   letter-spacing: 1px;
 }
 
+.active {
+  color: #f3be4c !important;
+}
+
 .navbar {
   height: 11.75vh;
   z-index: 3;
