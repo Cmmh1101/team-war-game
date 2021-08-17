@@ -1,7 +1,12 @@
 ## Quadruple war game By:
 
-## Carla Montano LinkedIn: https://www.linkedin.com/in/carla-montano/ Github: https://github.com/cmmh1101
-## Will Prouty: LinkedIn https://www.linkedin.com/in/will-prouty-07882b93/ Github: https://github.com/illfriday
+## Carla Montano 
+  - LinkedIn: https://www.linkedin.com/in/carla-montano/ 
+  - Github: https://github.com/cmmh1101
+  
+## Will Prouty: 
+  - LinkedIn https://www.linkedin.com/in/will-prouty-07882b93/ 
+  - Github: https://github.com/illfriday
 
 ## Some of the Technologies Used:
 
